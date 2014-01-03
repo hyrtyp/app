@@ -59,7 +59,7 @@ android {
 dependencies {
     compile 'com.android.support:appcompat-v7:+'
     compile 'com.android.support:support-v4:18.0.0'
-    compile project(':CaNoPreschool_Base')
+    compile project(':CNP_Base')
     compile project(':CNP_Account')
     instrumentTestCompile 'com.squareup.spoon:spoon-client:1.0.5'
     instrumentTestCompile 'com.jayway.android.robotium:robotium-solo:4.3'
