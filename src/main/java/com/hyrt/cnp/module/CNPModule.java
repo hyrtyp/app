@@ -49,4 +49,5 @@ public class CNPModule extends AbstractModule {
     File cacheDir(Context context) {
         return new File(context.getFilesDir(), "cache");
     }
+
 }
