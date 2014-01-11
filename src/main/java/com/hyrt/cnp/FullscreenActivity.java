@@ -117,6 +117,7 @@ public class FullscreenActivity extends Activity {
         // while interacting with the UI.
         findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
         startActivity(new Intent(this, LoginActivity.class));
+        this.finish();
     }
 
     @Override

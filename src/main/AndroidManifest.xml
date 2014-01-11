@@ -28,6 +28,10 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="com.hyrt.cnp.account.manager.UserInfoActivity" />
+        <activity android:name="com.hyrt.cnp.account.manager.UserPasswordActivity" />
+
+
         <service
             android:name="com.octo.android.robospice.JacksonSpringAndroidSpiceService"
             android:exported="false" />
