@@ -1,7 +1,14 @@
 package com.hyrt.cnp;
 
+import com.hyrt.cnp.account.manager.UserMainActivity;
+import com.hyrt.cnp.account.request.UserDetailRequest;
+import com.hyrt.cnp.account.requestListener.UserDetailRequestListener;
+import com.hyrt.cnp.account.service.MyService;
 import com.hyrt.cnp.util.SystemUiHider;
 import com.hyrt.cnp.account.LoginActivity;
+import com.octo.android.robospice.JacksonSpringAndroidSpiceService;
+import com.octo.android.robospice.SpiceManager;
+import com.octo.android.robospice.persistence.DurationInMillis;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -12,6 +19,7 @@ import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 
+import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
 
 /**
@@ -20,7 +28,10 @@ import roboguice.inject.InjectView;
  *
  * @see SystemUiHider
  */
-public class FullscreenActivity extends Activity {
+public class FullscreenActivity extends RoboActivity {
+
+    private SpiceManager spiceManager = new SpiceManager(
+            MyService.class);
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -116,8 +127,17 @@ public class FullscreenActivity extends Activity {
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
         findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
-        startActivity(new Intent(this, LoginActivity.class));
-        this.finish();
+        initData();
+    }
+
+    /**
+     * 获取数据
+     */
+    private void initData() {
+        UserDetailRequest userDetailRequest = new UserDetailRequest(this);
+        UserDetailRequestListener userDetailRequestListener = new UserDetailRequestListener(this);
+        spiceManager.execute(userDetailRequest, userDetailRequest.createCacheKey(),
+                DurationInMillis.ONE_MINUTE, userDetailRequestListener.start());
     }
 
     @Override
@@ -161,5 +181,24 @@ public class FullscreenActivity extends Activity {
     private void delayedHide(int delayMillis) {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
+    }
+
+    @Override
+    protected void onStart() {
+        spiceManager.start(this);
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        spiceManager.shouldStop();
+        stopService(new Intent(this,MyService.class));
+        super.onStop();
+    }
+
+    @Override
+    protected void onPause(){
+        this.finish();
+        super.onPause();
     }
 }
