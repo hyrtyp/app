@@ -18,6 +18,9 @@ package com.hyrt.cnp.module;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.hyrt.cnp.account.CNPClient;
+import com.hyrt.cnp.account.service.SchoolListService;
+import com.hyrt.cnp.account.service.SchoolNoticeService;
+import com.hyrt.cnp.account.service.SendwordService;
 import com.hyrt.cnp.account.service.UserService;
 
 /**
@@ -32,6 +35,21 @@ public class ServicesModule extends AbstractModule {
     @Provides
     UserService userService(CNPClient client) {
         return new UserService(client);
+    }
+
+    @Provides
+    SchoolListService schoolListService(CNPClient client){
+        return new SchoolListService(client);
+    }
+
+    @Provides
+    SendwordService sendwordService(CNPClient client){
+        return new SendwordService(client);
+    }
+
+    @Provides
+    SchoolNoticeService schoolNoticeService(CNPClient client){
+        return new SchoolNoticeService(client);
     }
 
 }

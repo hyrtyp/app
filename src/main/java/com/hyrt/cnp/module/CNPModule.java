@@ -36,6 +36,7 @@ public class CNPModule extends AbstractModule {
     @Override
     protected void configure() {
         install(new ServicesModule());
+        install(new ActivityModule());
         install(AccountScope.module());
     }
 
