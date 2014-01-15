@@ -18,9 +18,15 @@ package com.hyrt.cnp.module;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.hyrt.cnp.account.CNPClient;
-import com.hyrt.cnp.account.service.SchoolListService;
+import com.hyrt.cnp.account.service.ClassRoomService;
+import com.hyrt.cnp.account.service.PhotoService;
+import com.hyrt.cnp.account.service.RecipeInfoService;
+import com.hyrt.cnp.account.service.RecipeService;
 import com.hyrt.cnp.account.service.SchoolNoticeService;
+import com.hyrt.cnp.account.service.SchoolService;
 import com.hyrt.cnp.account.service.SendwordService;
+import com.hyrt.cnp.account.service.StarBabayService;
+import com.hyrt.cnp.account.service.TeacherService;
 import com.hyrt.cnp.account.service.UserService;
 
 /**
@@ -38,8 +44,8 @@ public class ServicesModule extends AbstractModule {
     }
 
     @Provides
-    SchoolListService schoolListService(CNPClient client){
-        return new SchoolListService(client);
+    SchoolService schoolListService(CNPClient client){
+        return new SchoolService(client);
     }
 
     @Provides
@@ -52,4 +58,29 @@ public class ServicesModule extends AbstractModule {
         return new SchoolNoticeService(client);
     }
 
+    @Provides
+    TeacherService teacherService(CNPClient client){
+        return new TeacherService(client);
+    }
+
+    @Provides
+    StarBabayService starBabayService(CNPClient client){
+        return new StarBabayService(client);
+    }
+    @Provides
+    RecipeService recipeService(CNPClient client){
+        return new RecipeService(client);
+    }
+    @Provides
+    ClassRoomService classRoomService(CNPClient client){
+        return new ClassRoomService(client);
+    }
+    @Provides
+    PhotoService photoService(CNPClient client){
+        return new PhotoService(client);
+    }
+    @Provides
+    RecipeInfoService recipeInfoService(CNPClient client){
+        return new RecipeInfoService(client);
+    }
 }
