@@ -23,6 +23,7 @@
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
+ 
     <supports-screens
         android:largeScreens="true"
         android:normalScreens="true"
@@ -34,7 +35,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:name="net.oschina.app.AppContext"
+         android:name="net.oschina.app.AppContext"
         android:theme="@style/Theme.Edu.Sherlock" >
         <activity
             android:name="com.hyrt.cnp.FullscreenActivity"
@@ -46,6 +47,15 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+        <activity
+            android:name="com.hyrt.cnp.school.ui.SchoolListActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.hyrt.cnp.school.ui.SchoolIndexActivity"
+            android:label="@string/app_name" >
 
         </activity>
 
@@ -68,9 +78,6 @@
         <service
             android:name="com.hyrt.cnp.account.service.MyService"
             android:exported="false" />
-
-
-
     </application>
 
 </manifest>

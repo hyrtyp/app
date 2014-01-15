@@ -61,6 +61,7 @@ dependencies {
     compile 'com.android.support:support-v4:18.0.0'
     compile project(':CNP_Base')
     compile project(':CNP_Account')
+    compile project(':CNP_School')
     instrumentTestCompile 'com.squareup.spoon:spoon-client:1.0.5'
     instrumentTestCompile 'com.jayway.android.robotium:robotium-solo:4.3'
     instrumentTestCompile 'com.squareup:fest-android:1.0.7'
