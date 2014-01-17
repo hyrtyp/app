@@ -78,6 +78,7 @@
     <orderEntry type="library" exported="" scope="TEST" name="robotium-solo-4.3" level="project" />
     <orderEntry type="module" module-name="CNP_Base" exported="" />
     <orderEntry type="library" exported="" scope="TEST" name="mockito-core-1.9.5-rc1" level="project" />
+    <orderEntry type="library" exported="" name="ComAndroidSupportAppcompatV71900.aar" level="project" />
     <orderEntry type="module" module-name="CNP_Account" exported="" />
     <orderEntry type="library" exported="" name="cglib-2.2.1-v20090111" level="project" />
     <orderEntry type="library" exported="" name="jackson-core-asl-1.9.11" level="project" />
@@ -89,8 +90,7 @@
     <orderEntry type="library" exported="" name="commons-codec-1.2" level="project" />
     <orderEntry type="library" exported="" name="robospice-spring-android-1.4.9" level="project" />
     <orderEntry type="library" exported="" name="gson-2.2.2" level="project" />
-    <orderEntry type="library" exported="" name="support-v4-19.0.1" level="project" />
-    <orderEntry type="library" exported="" name="ComAndroidSupportAppcompatV71901.aar" level="project" />
+    <orderEntry type="library" exported="" name="support-v4-19.0.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="hamcrest-core-1.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="fest-assert-core-2.0M10" level="project" />
     <orderEntry type="library" exported="" name="spring-android-rest-template-1.0.1.RELEASE" level="project" />
@@ -104,6 +104,7 @@
     <orderEntry type="library" exported="" scope="TEST" name="objenesis-1.0" level="project" />
     <orderEntry type="library" exported="" name="commons-httpclient-3.1" level="project" />
     <orderEntry type="library" exported="" name="jackson-mapper-asl-1.9.11" level="project" />
+    <orderEntry type="library" exported="" name="classes-dex2jar" level="project" />
     <orderEntry type="library" exported="" name="commons-lang3-3.1" level="project" />
   </component>
 </module>
