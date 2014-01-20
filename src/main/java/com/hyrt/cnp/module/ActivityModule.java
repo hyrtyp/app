@@ -4,6 +4,7 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.name.Named;
 import com.hyrt.cnp.account.LoginActivity;
+import com.hyrt.cnp.account.manager.UserMainActivity;
 import com.hyrt.cnp.classroom.ui.ClassroomAlbumActivity;
 import com.hyrt.cnp.classroom.ui.ClassroomBabayActivity;
 import com.hyrt.cnp.classroom.ui.ClassroomIndexActivity;

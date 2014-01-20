@@ -38,9 +38,7 @@
         android:name="net.oschina.app.AppContext"
         android:theme="@style/Theme.Edu.Sherlock" >
         <activity android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.FullscreenActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/FullscreenTheme" >
+            android:name="com.hyrt.cnp.FullscreenActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -64,9 +62,6 @@
             android:label="@string/myschool_title" >
 
         </activity>
-
-        <activity android:name="com.hyrt.cnp.account.LoginActivity"
-            android:label="@string/login_title"/>
 
         <activity android:name="com.hyrt.cnp.account.manager.UserMainActivity"
             android:label="@string/usermain_title"/>
@@ -141,16 +136,6 @@
             android:name="com.hyrt.cnp.classroom.ui.ClassroomRecipeInfoActivity"
             android:label="@string/dayrecipe" >
         </activity>
-
-
-        <activity android:screenOrientation="portrait" android:name="com.hyrt.cnp.account.manager.UserMainActivity"
-            android:label="@string/usermain_title"/>
-        <activity android:screenOrientation="portrait" android:name="com.hyrt.cnp.account.manager.UserInfoActivity"
-            android:label="@string/userinfo_title"/>
-        <activity android:screenOrientation="portrait" android:name="com.hyrt.cnp.account.manager.UserPasswordActivity"
-            android:label="@string/userpassword_title"/>
-        <activity android:screenOrientation="portrait" android:name="com.hyrt.cnp.account.manager.UserFaceActivity"
-            android:label="@string/userface_title"/>
 
         <service
             android:name="com.octo.android.robospice.JacksonSpringAndroidSpiceService"
