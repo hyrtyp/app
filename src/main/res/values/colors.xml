@@ -2,4 +2,8 @@
 
     <color name="black_overlay">#66000000</color>
 
+    <color name="main_user_update_covercolor">#10000000</color>
+
+    <color name="line_color">#D3CFCC</color>
+
 </resources>
