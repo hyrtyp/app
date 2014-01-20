@@ -12,7 +12,7 @@
 
         <ImageView android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#00FF00"
+            android:background="@drawable/hua"
             android:layout_above="@+id/face_iv"
             android:layout_marginBottom="@dimen/main_user_cover_marginbottom"/>
         

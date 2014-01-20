@@ -36,9 +36,6 @@ public class FullscreenActivity extends RoboActivity {
     @InjectView(value=R.id.my_info)
     private ImageView myInfo;
 
-
-
-
     private SpiceManager spiceManager = new SpiceManager(
             MyService.class);
 
