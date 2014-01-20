@@ -2,7 +2,9 @@
 <resources>
 
     <string name="app_name">CNP</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="click_usercover">点击设置个人封面</string>
+    <string name="main_userinfo_menutv">我的资料</string>
+    <string name="main_userclass_menutv">我的班级</string>
+    <string name="main_userschool_menutv">我的幼儿园</string>
 
 </resources>
