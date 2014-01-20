@@ -4,6 +4,11 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.name.Named;
 import com.hyrt.cnp.account.LoginActivity;
+import com.hyrt.cnp.classroom.ui.ClassroomAlbumActivity;
+import com.hyrt.cnp.classroom.ui.ClassroomBabayActivity;
+import com.hyrt.cnp.classroom.ui.ClassroomIndexActivity;
+import com.hyrt.cnp.classroom.ui.ClassroomRecipeInfoActivity;
+import com.hyrt.cnp.classroom.ui.ClassroomphotolistActivity;
 import com.hyrt.cnp.school.ui.ClassRoomListActivity;
 import com.hyrt.cnp.school.ui.SchoolIndexActivity;
 import com.hyrt.cnp.school.ui.SchoolInfoActivity;
@@ -100,5 +105,28 @@ public class ActivityModule extends AbstractModule {
     @Named("schoolInfoActivity")
     Class SchoolInfoActivity(){
         return SchoolInfoActivity.class;
+    }
+    @Provides
+    @Named("classroomIndexActivity")
+    Class ClassroomIndexActivity(){
+        return ClassroomIndexActivity.class;
+    }
+    @Provides
+    @Named("classroomAlbumActivity")
+    Class classroomAlbumActivity(){
+        return ClassroomAlbumActivity.class;
+    }
+    @Provides
+    @Named("classroomphotolistActivity")
+    Class classroomphotolistActivity(){
+        return ClassroomphotolistActivity.class;
+    }
+    @Named("classroomBabayActivity")
+    Class classroomBabayActivity(){
+        return ClassroomBabayActivity.class;
+    }
+    @Named("classroomRecipeInfoActivity")
+    Class classroomRecipeInfoActivity(){
+        return ClassroomRecipeInfoActivity.class;
     }
 }

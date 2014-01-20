@@ -74,6 +74,7 @@
     <orderEntry type="library" exported="" name="robospice-ui-spicelist-1.4.5" level="project" />
     <orderEntry type="library" exported="" name="HockeySDK-3.0.1" level="project" />
     <orderEntry type="library" exported="" name="org.eclipse.egit.github.core-2.1.4" level="project" />
+    <orderEntry type="module" module-name="CNP_Classroom" exported="" />
     <orderEntry type="library" exported="" name="aopalliance-1.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="robotium-solo-4.3" level="project" />
     <orderEntry type="module" module-name="CNP_Base" exported="" />
