@@ -18,7 +18,9 @@ package com.hyrt.cnp.module;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.hyrt.cnp.account.CNPClient;
+import com.hyrt.cnp.account.service.AlbumService;
 import com.hyrt.cnp.account.service.ClassRoomService;
+import com.hyrt.cnp.account.service.ClassroomBabayService;
 import com.hyrt.cnp.account.service.PhotoService;
 import com.hyrt.cnp.account.service.RecipeInfoService;
 import com.hyrt.cnp.account.service.RecipeService;
@@ -83,4 +85,13 @@ public class ServicesModule extends AbstractModule {
     RecipeInfoService recipeInfoService(CNPClient client){
         return new RecipeInfoService(client);
     }
+    @Provides
+    AlbumService albumService(CNPClient client){
+        return new AlbumService(client);
+    }
+    @Provides
+    ClassroomBabayService classroomBabayService(CNPClient client){
+        return new ClassroomBabayService(client);
+    }
+
 }

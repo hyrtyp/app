@@ -3,9 +3,10 @@ package com.hyrt.cnp.account.test;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.test.ActivityInstrumentationTestCase2;
-import android.test.UiThreadTest;
+
 import com.hyrt.cnp.account.LoginActivity;
 import com.jayway.android.robotium.solo.Solo;
+import android.test.UiThreadTest;
 import com.jingdong.common.utils.FormatUtils;
 import com.squareup.spoon.Spoon;
 
@@ -24,6 +25,7 @@ public class LoginActivityTest extends ActivityInstrumentationTestCase2<LoginAct
     public LoginActivityTest(){
         super(LoginActivity.class);
     }
+
 
 
     @Override
