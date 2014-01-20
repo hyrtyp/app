@@ -9,6 +9,7 @@ import com.hyrt.cnp.classroom.ui.ClassroomBabayActivity;
 import com.hyrt.cnp.classroom.ui.ClassroomIndexActivity;
 import com.hyrt.cnp.classroom.ui.ClassroomRecipeInfoActivity;
 import com.hyrt.cnp.classroom.ui.ClassroomphotolistActivity;
+import com.hyrt.cnp.dynamic.ui.BabayIndexActivity;
 import com.hyrt.cnp.school.ui.ClassRoomListActivity;
 import com.hyrt.cnp.school.ui.SchoolIndexActivity;
 import com.hyrt.cnp.school.ui.SchoolInfoActivity;
@@ -121,12 +122,19 @@ public class ActivityModule extends AbstractModule {
     Class classroomphotolistActivity(){
         return ClassroomphotolistActivity.class;
     }
+    @Provides
     @Named("classroomBabayActivity")
     Class classroomBabayActivity(){
         return ClassroomBabayActivity.class;
     }
+    @Provides
     @Named("classroomRecipeInfoActivity")
     Class classroomRecipeInfoActivity(){
         return ClassroomRecipeInfoActivity.class;
+    }
+    @Provides
+    @Named("babayIndexActivity")
+    Class babayIndexActivity(){
+        return BabayIndexActivity.class;
     }
 }
