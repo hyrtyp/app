@@ -5,7 +5,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/hua"
+        android:background="@drawable/hua2"
         android:layout_above="@+id/face_parentLl"
         android:layout_marginBottom="@dimen/main_user_cover_marginbottom"
         android:id="@+id/imageView" />

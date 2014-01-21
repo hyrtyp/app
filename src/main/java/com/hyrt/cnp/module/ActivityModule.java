@@ -4,13 +4,15 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.name.Named;
 import com.hyrt.cnp.account.LoginActivity;
-import com.hyrt.cnp.account.manager.UserMainActivity;
+import com.hyrt.cnp.account.manager.UserInfoActivity;
 import com.hyrt.cnp.classroom.ui.ClassroomAlbumActivity;
 import com.hyrt.cnp.classroom.ui.ClassroomBabayActivity;
 import com.hyrt.cnp.classroom.ui.ClassroomIndexActivity;
 import com.hyrt.cnp.classroom.ui.ClassroomRecipeInfoActivity;
 import com.hyrt.cnp.classroom.ui.ClassroomphotolistActivity;
 import com.hyrt.cnp.dynamic.ui.BabayIndexActivity;
+import com.hyrt.cnp.dynamic.ui.BabayWordActivity;
+import com.hyrt.cnp.dynamic.ui.DynamicCommentActivity;
 import com.hyrt.cnp.school.ui.ClassRoomListActivity;
 import com.hyrt.cnp.school.ui.SchoolIndexActivity;
 import com.hyrt.cnp.school.ui.SchoolInfoActivity;
@@ -137,5 +139,22 @@ public class ActivityModule extends AbstractModule {
     @Named("babayIndexActivity")
     Class babayIndexActivity(){
         return BabayIndexActivity.class;
+    }
+
+    @Provides
+    @Named("babayWordActivity")
+    Class babayWordActivity(){
+        return BabayWordActivity.class;
+    }
+
+    @Provides
+    @Named("userInfoActivity")
+    Class userInfoActivity(){
+        return UserInfoActivity.class;
+    }
+    @Provides
+    @Named("dynamicCommentActivity")
+    Class dynamicCommentActivity(){
+        return DynamicCommentActivity.class;
     }
 }
