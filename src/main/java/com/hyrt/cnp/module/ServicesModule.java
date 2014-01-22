@@ -21,6 +21,7 @@ import com.hyrt.cnp.account.CNPClient;
 import com.hyrt.cnp.account.service.AlbumService;
 import com.hyrt.cnp.account.service.ClassRoomService;
 import com.hyrt.cnp.account.service.ClassroomBabayService;
+import com.hyrt.cnp.account.service.CommentService;
 import com.hyrt.cnp.account.service.PhotoService;
 import com.hyrt.cnp.account.service.RecipeInfoService;
 import com.hyrt.cnp.account.service.RecipeService;
@@ -93,5 +94,8 @@ public class ServicesModule extends AbstractModule {
     ClassroomBabayService classroomBabayService(CNPClient client){
         return new ClassroomBabayService(client);
     }
-
+    @Provides
+    CommentService commentService(CNPClient client){
+        return new CommentService(client);
+    }
 }

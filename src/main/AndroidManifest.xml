@@ -37,7 +37,8 @@
         android:label="@string/app_name"
         android:name="net.oschina.app.AppContext"
         android:theme="@style/Theme.Edu.Sherlock" >
-        <activity android:screenOrientation="portrait"
+        <activity
+            android:theme="@style/MyFullscreenTheme"
             android:name="com.hyrt.cnp.FullscreenActivity">
 
             <intent-filter>
@@ -47,16 +48,16 @@
             </intent-filter>
 
         </activity>
-        <activity android:screenOrientation="portrait"
+        <activity 
             android:name="com.hyrt.cnp.account.LoginActivity"
             android:label="@string/login_title" >
         </activity>
-        <activity android:screenOrientation="portrait"
+        <activity 
             android:name="com.hyrt.cnp.school.ui.SchoolListActivity"
 
             android:label="@string/myschool_title" >
         </activity>
-        <activity android:screenOrientation="portrait"
+        <activity 
             android:name="com.hyrt.cnp.school.ui.SchoolIndexActivity"
 
             android:label="@string/myschool_title" >
@@ -70,48 +71,48 @@
         <activity android:name="com.hyrt.cnp.account.manager.UserPasswordActivity"
             android:label="@string/userpassword_title" android:windowSoftInputMode="adjustPan"/>
         <activity android:name="com.hyrt.cnp.account.manager.UserFaceActivity"/>
-        <activity android:screenOrientation="portrait"
+        <activity 
             android:name="com.hyrt.cnp.school.ui.SendwordActivity"
             android:label="@string/schoolword" >
         </activity>
-        <activity android:screenOrientation="portrait"
+        <activity 
             android:name="com.hyrt.cnp.school.ui.SchoolNoticeActivity"
             android:label="@string/schoolnotice_title" >
         </activity>
-        <activity android:screenOrientation="portrait"
+        <activity 
             android:name="com.hyrt.cnp.school.ui.SchoolNoticeInfoActivity"
             android:label="@string/schoolnotice_title" >
         </activity>
-        <activity android:screenOrientation="portrait"
+        <activity 
             android:name="com.hyrt.cnp.school.ui.StarTeacherInfoActivity"
             android:label="@string/starteacher_title" >
         </activity>
-        <activity android:screenOrientation="portrait"
+        <activity 
             android:name="com.hyrt.cnp.school.ui.SchoolRecipeActivity"
 
             android:label="@string/schoolrecipe_title" >
         </activity>
-        <activity android:screenOrientation="portrait"
+        <activity 
             android:name="com.hyrt.cnp.school.ui.StarTeacherActivity"
             android:label="@string/starteacher_title" >
         </activity>
-        <activity android:screenOrientation="portrait"
+        <activity 
             android:name="com.hyrt.cnp.school.ui.StarBabayActivity"
             android:label="@string/starbabay" >
         </activity>
-        <activity android:screenOrientation="portrait"
+        <activity 
             android:name="com.hyrt.cnp.school.ui.ClassRoomListActivity"
             android:label="@string/classroomsetting" >
         </activity>
-        <activity android:screenOrientation="portrait"
+        <activity 
             android:name="com.hyrt.cnp.school.ui.SchoolPhotoActivity"
             android:label="@string/schoolphoto" >
         </activity>
-        <activity android:screenOrientation="portrait"
+        <activity 
             android:name="com.hyrt.cnp.school.ui.SchoolRepiceInfoActivity"
             android:label="@string/schoolrecipe_title" >
         </activity>
-        <activity android:screenOrientation="portrait"
+        <activity 
             android:name="com.hyrt.cnp.school.ui.SchoolInfoActivity"
             android:label="@string/schoolinfo" >
         </activity>
@@ -149,6 +150,11 @@
         <activity
             android:name="com.hyrt.cnp.dynamic.ui.DynamicCommentActivity"
             android:label="@string/setzfcommit" >
+
+        </activity>
+        <activity
+            android:name="com.hyrt.cnp.classroom.ui.ClassroomphotoinfoActivity"
+            android:label="@string/classroomphotoinfo" >
 
         </activity>
         <service

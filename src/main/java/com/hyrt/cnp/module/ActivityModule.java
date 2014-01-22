@@ -9,6 +9,7 @@ import com.hyrt.cnp.classroom.ui.ClassroomAlbumActivity;
 import com.hyrt.cnp.classroom.ui.ClassroomBabayActivity;
 import com.hyrt.cnp.classroom.ui.ClassroomIndexActivity;
 import com.hyrt.cnp.classroom.ui.ClassroomRecipeInfoActivity;
+import com.hyrt.cnp.classroom.ui.ClassroomphotoinfoActivity;
 import com.hyrt.cnp.classroom.ui.ClassroomphotolistActivity;
 import com.hyrt.cnp.dynamic.ui.BabayIndexActivity;
 import com.hyrt.cnp.dynamic.ui.BabayWordActivity;
@@ -156,5 +157,10 @@ public class ActivityModule extends AbstractModule {
     @Named("dynamicCommentActivity")
     Class dynamicCommentActivity(){
         return DynamicCommentActivity.class;
+    }
+    @Provides
+    @Named("classroomphotoinfoActivity")
+    Class classroomphotoinfoActivity(){
+        return ClassroomphotoinfoActivity.class;
     }
 }

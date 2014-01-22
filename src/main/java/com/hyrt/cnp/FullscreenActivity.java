@@ -31,6 +31,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 import java.io.ByteArrayOutputStream;
@@ -82,8 +83,6 @@ public class FullscreenActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         final RoboInjector injector = RoboGuice.getInjector(this);
         injector.injectMembersWithoutViews(this);
-        //无title
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fullscreen);
         mySchool.setOnClickListener(new View.OnClickListener() {
