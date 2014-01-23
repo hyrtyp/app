@@ -22,6 +22,7 @@ import com.hyrt.cnp.account.service.AlbumService;
 import com.hyrt.cnp.account.service.ClassRoomService;
 import com.hyrt.cnp.account.service.ClassroomBabayService;
 import com.hyrt.cnp.account.service.CommentService;
+import com.hyrt.cnp.account.service.DynamicService;
 import com.hyrt.cnp.account.service.PhotoService;
 import com.hyrt.cnp.account.service.RecipeInfoService;
 import com.hyrt.cnp.account.service.RecipeService;
@@ -97,5 +98,9 @@ public class ServicesModule extends AbstractModule {
     @Provides
     CommentService commentService(CNPClient client){
         return new CommentService(client);
+    }
+    @Provides
+    DynamicService dynamicService(CNPClient client){
+        return new DynamicService(client);
     }
 }
