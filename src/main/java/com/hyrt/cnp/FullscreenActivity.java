@@ -4,10 +4,9 @@ package com.hyrt.cnp;
 import com.hyrt.cnp.account.manager.UserMainActivity;
 import com.hyrt.cnp.account.model.UserDetail;
 import com.hyrt.cnp.account.request.UserDetailRequest;
-import com.hyrt.cnp.account.request.UserFaceRequest;
+import com.hyrt.cnp.account.request.UserFaceBgRequest;
 import com.hyrt.cnp.account.requestListener.BaseRequestListener;
-import com.hyrt.cnp.account.requestListener.UserDetailRequestListener;
-import com.hyrt.cnp.account.requestListener.UserFaceRequestListener;
+import com.hyrt.cnp.requestListener.UserFaceBgRequestListener;
 import com.hyrt.cnp.account.service.MyService;
 import com.hyrt.cnp.account.utils.FaceUtils;
 import com.hyrt.cnp.account.utils.FileUtils;
@@ -15,34 +14,23 @@ import com.hyrt.cnp.account.utils.PhotoUpload;
 import com.hyrt.cnp.classroom.ui.ClassroomIndexActivity;
 import com.hyrt.cnp.school.ui.SchoolIndexActivity;
 import com.hyrt.cnp.util.SystemUiHider;
-import com.jingdong.app.pad.product.drawable.HandlerRecycleBitmapDrawable;
-import com.jingdong.app.pad.utils.InflateUtil;
 import com.jingdong.common.frame.BaseActivity;
 import com.jingdong.common.utils.cache.GlobalImageCache;
-import com.octo.android.robospice.JacksonSpringAndroidSpiceService;
 import com.octo.android.robospice.SpiceManager;
 import com.octo.android.robospice.persistence.DurationInMillis;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.lang.ref.WeakReference;
-
 import roboguice.RoboGuice;
-import roboguice.activity.RoboActivity;
-import roboguice.activity.event.OnContentChangedEvent;
-import roboguice.event.EventManager;
-import roboguice.inject.ContentView;
 import roboguice.inject.InjectView;
 import roboguice.inject.RoboInjector;
 
@@ -63,12 +51,18 @@ public class FullscreenActivity extends BaseActivity {
     @InjectView(value=R.id.my_info)
     private ImageView myInfo;
 
+    @InjectView(value=R.id.facebg_iv)
+    private ImageView imageViewBg;
+
     private PhotoUpload photoUpload;
     private Uri faceFile;
     private Bitmap bitmap;
 
     public SpiceManager spiceManager = new SpiceManager(
             MyService.class);
+
+    private GlobalImageCache.BitmapDigest localBitmapDigest;
+
 
 
     @Override
@@ -153,9 +147,16 @@ public class FullscreenActivity extends BaseActivity {
      */
     private void initFaceIfSuccess(UserDetail.UserDetailModel userData) {
         UserDetail.UserDetailModel userDetail = userData;
+
+        //加载头像
         String facePath = FaceUtils.getAvatar(userDetail.getData().getUser_id(), FaceUtils.FACE_SMALL);
         ImageView imageView = (ImageView) findViewById(R.id.face_iv);
-        showDetailImage(facePath,imageView,true);
+        showDetailImage(facePath,imageView,false);
+
+        //加载头像地址
+        String faceBgPath = FaceUtils.getAvatar(userDetail.getData().getUser_id(), FaceUtils.FACE_BG);
+        localBitmapDigest = showDetailImage(faceBgPath,imageViewBg,true);
+
 
     }
 
@@ -179,15 +180,15 @@ public class FullscreenActivity extends BaseActivity {
             bitmap = data.getParcelableExtra("data");
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-            /*File targetFile = FileUtils.writeFile(baos.toByteArray(), "cnp", "face_cover.jpg");
+            File targetFile = FileUtils.writeFile(baos.toByteArray(), "cnp", "face_cover.jpg");
 
             //上传图片资源
-            UserFaceRequest request = new UserFaceRequest(this, targetFile);
+            UserFaceBgRequest request = new UserFaceBgRequest(this, targetFile);
             String lastRequestCacheKey = request.createCacheKey();
-            UserFaceRequestListener userFaceRequestListener = new UserFaceRequestListener(this);
-            spiceManager.execute(request, lastRequestCacheKey, DurationInMillis.ONE_SECOND, userFaceRequestListener.start());*/
+            UserFaceBgRequestListener userFaceRequestListener = new UserFaceBgRequestListener(this);
+            spiceManager.execute(request, lastRequestCacheKey, DurationInMillis.ONE_SECOND, userFaceRequestListener.start());
         } else if (requestCode == PhotoUpload.FROM_CAMERA) {
-            photoUpload.startPhotoZoom(faceFile);
+            photoUpload.startRangPhotoZoom(faceFile);
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
@@ -196,7 +197,8 @@ public class FullscreenActivity extends BaseActivity {
      * 上传图片成功后,更新缓存中的图片
      */
     public void updateCacheAndUI() {
-        //GlobalImageCache.getLruBitmapCache().put(localBitmapDigest, bitmap);
+        GlobalImageCache.getLruBitmapCache().put(localBitmapDigest, bitmap);
+        imageViewBg.setBackgroundDrawable(new BitmapDrawable(bitmap));
     }
 
 }
