@@ -1,6 +1,7 @@
 package com.hyrt.cnp;
 
 
+import com.hyrt.cnp.account.LoginActivity;
 import com.hyrt.cnp.account.manager.UserMainActivity;
 import com.hyrt.cnp.account.model.UserDetail;
 import com.hyrt.cnp.account.request.UserDetailRequest;
@@ -14,6 +15,7 @@ import com.hyrt.cnp.account.utils.PhotoUpload;
 import com.hyrt.cnp.classroom.ui.ClassroomIndexActivity;
 import com.hyrt.cnp.school.ui.SchoolIndexActivity;
 import com.hyrt.cnp.util.SystemUiHider;
+import com.jingdong.app.pad.product.drawable.HandlerRecycleBitmapDrawable;
 import com.jingdong.common.frame.BaseActivity;
 import com.jingdong.common.utils.cache.GlobalImageCache;
 import com.octo.android.robospice.SpiceManager;
@@ -27,6 +29,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import net.hockeyapp.android.CrashManager;
+import net.hockeyapp.android.UpdateManager;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -40,6 +46,7 @@ import roboguice.inject.RoboInjector;
  *
  * @see SystemUiHider
  */
+
 public class FullscreenActivity extends BaseActivity {
 
     @InjectView(value=R.id.my_class)
@@ -58,20 +65,30 @@ public class FullscreenActivity extends BaseActivity {
     private Uri faceFile;
     private Bitmap bitmap;
 
-    public SpiceManager spiceManager = new SpiceManager(
+    public SpiceManager spiceManager1 = new SpiceManager(
             MyService.class);
 
     private GlobalImageCache.BitmapDigest localBitmapDigest;
+
+    /**
+     * hockeyapp plugin APP_ID for this project
+     */
+    private static final String APP_ID = "411f163ce21e2352706900bdccb37c92";
 
 
 
     @Override
     protected void onStart() {
-        if(!spiceManager.isStarted())
-            spiceManager.start(this);
-        startService(new Intent(this,MyService.class));
         super.onStart();
+        if(!spiceManager1.isStarted())
+            spiceManager1.start(this);
     }
+
+   /* @Override
+    protected void onStop() {
+        super.onStop();
+        spiceManager1.shouldStop();
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,6 +122,7 @@ public class FullscreenActivity extends BaseActivity {
                 photoUpload.choiceItem();
             }
         });
+        checkForUpdates();
         initData();
     }
 
@@ -112,8 +130,9 @@ public class FullscreenActivity extends BaseActivity {
      * 获取数据
      */
     private void initData() {
+        //获取用户的基本信息
         UserDetailRequest userDetailRequest = new UserDetailRequest(this);
-        spiceManager.execute(userDetailRequest, userDetailRequest.createCacheKey(),
+        spiceManager1.execute(userDetailRequest, userDetailRequest.createCacheKey(),
                 DurationInMillis.ONE_MINUTE,new BaseRequestListener(this) {
 
             @Override
@@ -148,6 +167,10 @@ public class FullscreenActivity extends BaseActivity {
     private void initFaceIfSuccess(UserDetail.UserDetailModel userData) {
         UserDetail.UserDetailModel userDetail = userData;
 
+        //附加名字
+        TextView TextView = (TextView) findViewById(R.id.name_tv);
+        TextView.setText(userData.getData().getRenname());
+
         //加载头像
         String facePath = FaceUtils.getAvatar(userDetail.getData().getUser_id(), FaceUtils.FACE_SMALL);
         ImageView imageView = (ImageView) findViewById(R.id.face_iv);
@@ -158,12 +181,6 @@ public class FullscreenActivity extends BaseActivity {
         localBitmapDigest = showDetailImage(faceBgPath,imageViewBg,true);
 
 
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        stopService(new Intent(this,MyService.class));
     }
 
     /**
@@ -197,8 +214,27 @@ public class FullscreenActivity extends BaseActivity {
      * 上传图片成功后,更新缓存中的图片
      */
     public void updateCacheAndUI() {
-        GlobalImageCache.getLruBitmapCache().put(localBitmapDigest, bitmap);
-        imageViewBg.setBackgroundDrawable(new BitmapDrawable(bitmap));
+        if(localBitmapDigest != null){
+            GlobalImageCache.getLruBitmapCache().put(localBitmapDigest, bitmap);
+            HandlerRecycleBitmapDrawable localHandlerRecycleBitmapDrawable = (HandlerRecycleBitmapDrawable) imageViewBg.getDrawable();
+            localHandlerRecycleBitmapDrawable.setBitmap(bitmap);
+            localHandlerRecycleBitmapDrawable.invalidateSelf();
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        checkForCrashes();
+    }
+
+    private void checkForCrashes() {
+        CrashManager.register(this, APP_ID);
+    }
+
+    private void checkForUpdates() {
+        // Remove this for store builds!
+        UpdateManager.register(this, APP_ID);
     }
 
 }

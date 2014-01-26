@@ -5,7 +5,6 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/hua"
         android:layout_above="@+id/face_parentLl"
         android:layout_marginBottom="@dimen/main_user_cover_marginbottom"
         android:id="@+id/facebg_iv" />
@@ -46,7 +45,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="yepeng"
             android:id="@+id/name_tv"
             android:layout_alignParentBottom="true"
             android:layout_toRightOf="@+id/face_iv"/>

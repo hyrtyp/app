@@ -19,7 +19,7 @@
 
         <ImageView
             style="@style/MenuIv"
-            android:background="@drawable/my_school"
+            android:src="@drawable/my_school"
             android:id="@+id/my_school"/>
             
             <TextView
