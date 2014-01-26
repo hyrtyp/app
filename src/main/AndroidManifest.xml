@@ -140,7 +140,26 @@
             android:name="com.hyrt.cnp.classroom.ui.ClassroomRecipeInfoActivity"
             android:label="@string/dayrecipe" >
         </activity>
+        <activity
+            android:name="com.hyrt.cnp.dynamic.ui.BabayIndexActivity"
+            android:label="@string/app_name" >
 
+        </activity>
+        <activity
+            android:name="com.hyrt.cnp.dynamic.ui.BabayWordActivity"
+            android:label="@string/babayword" >
+
+        </activity>
+        <activity
+            android:name="com.hyrt.cnp.dynamic.ui.DynamicCommentActivity"
+            android:label="@string/setzfcommit" >
+
+        </activity>
+        <activity
+            android:name="com.hyrt.cnp.classroom.ui.ClassroomphotoinfoActivity"
+            android:label="@string/classroomphotoinfo" >
+
+        </activity>
         <service
             android:name="com.hyrt.cnp.account.service.MyService"
             android:exported="false" />

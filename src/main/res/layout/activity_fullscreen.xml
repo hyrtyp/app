@@ -75,9 +75,9 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
             android:layout_alignParentBottom="true"
             android:src="@drawable/huabottom"/>
-
      </RelativeLayout>
 
 
