@@ -19,6 +19,7 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.hyrt.cnp.account.CNPClient;
 import com.hyrt.cnp.account.service.AlbumService;
+import com.hyrt.cnp.account.service.BabayinfoService;
 import com.hyrt.cnp.account.service.ClassRoomService;
 import com.hyrt.cnp.account.service.ClassroomBabayService;
 import com.hyrt.cnp.account.service.CommentService;
@@ -102,5 +103,10 @@ public class ServicesModule extends AbstractModule {
     @Provides
     DynamicService dynamicService(CNPClient client){
         return new DynamicService(client);
+    }
+
+    @Provides
+    BabayinfoService babayinfoService(CNPClient client){
+        return new BabayinfoService(client);
     }
 }
