@@ -7,6 +7,8 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/face_parentLl"
         android:layout_marginBottom="@dimen/main_user_cover_marginbottom"
+        android:background="@drawable/hua"
+        android:scaleType="fitXY"
         android:id="@+id/facebg_iv" />
 
     <LinearLayout
@@ -34,6 +36,7 @@
 
         <ImageView
             style="@style/FaceIv"
+            android:src="@drawable/face"
             android:id="@+id/face_iv"
             android:layout_marginBottom="@dimen/main_user_face_marginbottom"
             android:layout_marginLeft="@dimen/main_user_face_marginleft"

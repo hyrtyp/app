@@ -1,7 +1,5 @@
 package com.hyrt.cnp;
 
-
-import com.hyrt.cnp.account.LoginActivity;
 import com.hyrt.cnp.account.manager.UserMainActivity;
 import com.hyrt.cnp.account.model.UserDetail;
 import com.hyrt.cnp.account.request.UserDetailRequest;
@@ -24,7 +22,6 @@ import com.octo.android.robospice.persistence.exception.SpiceException;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -117,8 +114,9 @@ public class FullscreenActivity extends BaseActivity {
         findViewById(R.id.update_cover).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                faceFile = Uri.fromFile(FileUtils.createFile("cnp", "face_cover.jpg"));
+                faceFile = Uri.fromFile(FileUtils.createFile("cnp", "face_cover.png"));
                 photoUpload = new PhotoUpload(FullscreenActivity.this, faceFile);
+                photoUpload.setRang(true);
                 photoUpload.choiceItem();
             }
         });
@@ -191,13 +189,13 @@ public class FullscreenActivity extends BaseActivity {
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == PhotoUpload.PHOTO_ZOOM && data != null) {
+        if (requestCode == PhotoUpload.PHOTO_ZOOM && data != null && data.getParcelableExtra("data") != null) {
 
             //保存剪切好的图片
             bitmap = data.getParcelableExtra("data");
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-            File targetFile = FileUtils.writeFile(baos.toByteArray(), "cnp", "face_cover.jpg");
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+            File targetFile = FileUtils.writeFile(baos.toByteArray(), "cnp", "face_cover.png");
 
             //上传图片资源
             UserFaceBgRequest request = new UserFaceBgRequest(this, targetFile);

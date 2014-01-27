@@ -5,8 +5,11 @@ import android.os.Build;
 import android.test.ActivityInstrumentationTestCase2;
 
 import com.hyrt.cnp.account.LoginActivity;
+import com.hyrt.cnp.account.utils.StringUtils;
 import com.jayway.android.robotium.solo.Solo;
 import android.test.UiThreadTest;
+import android.test.suitebuilder.annotation.SmallTest;
+
 import com.jingdong.common.utils.FormatUtils;
 import com.squareup.spoon.Spoon;
 
@@ -59,6 +62,18 @@ public class LoginActivityTest extends ActivityInstrumentationTestCase2<LoginAct
         assertNotNull(preDateStr);
         assertEquals(preDateStr, "2014-01-17");
 
+    }
+
+    @SmallTest
+    public void testMillDateFormat(){
+        Spoon.screenshot(this.getActivity(), "LoginAcitivty");
+        solo.assertMemoryNotLow();
+        try {
+            String normalTime = StringUtils.millTimeToNormalTime("1390550734");
+            assertEquals(normalTime,"1970-01-17 10:15:50");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
