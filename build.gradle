@@ -10,6 +10,8 @@ buildscript {
 }
 apply plugin: 'android'
 apply plugin: 'spoon'
+apply plugin: 'signing'
+
 
 spoon {
     debug = true
@@ -29,21 +31,23 @@ android {
         versionCode 1
         versionName "1.0"
     }
-    buildTypes {
-        release {
-            runProguard false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
-        }
-    }
+
     signingConfigs {
 
-        myConfig {
-            //storeFile file(project.hasProperty('apkstoreFile') ? apkstoreFile : "C:\\Users\\peng\\.ssh\\hyrt.store")
-            //storePassword project.hasProperty('apkstorePassword') ? apkstorePassword : "hyrt.store"
-            //keyAlias project.hasProperty('apkkeyAlias') ? apkkeyAlias : "hyrt.store"
-            //keyPassword project.hasProperty('apkskeyPassword') ? apkkeyPassword : "hyrt.store"
+        release {
+            storeFile file(project.hasProperty('apkstoreFile') ? apkstoreFile : "/home/yepeng/.ssh/hyrt.store")
+            storePassword project.hasProperty('apkstorePassword') ? apkstorePassword : "hyrt.store"
+            keyAlias project.hasProperty('apkkeyAlias') ? apkkeyAlias : "hyrt.store"
+            keyPassword project.hasProperty('apkskeyPassword') ? apkkeyPassword : "hyrt.store"
         }
     }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+        }
+    }
+
 
     packagingOptions {
         exclude 'META-INF/notice.txt'
