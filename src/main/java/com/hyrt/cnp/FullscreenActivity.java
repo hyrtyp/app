@@ -1,16 +1,25 @@
 package com.hyrt.cnp;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import com.hyrt.cnp.account.manager.UserMainActivity;
 import com.hyrt.cnp.account.model.UserDetail;
 import com.hyrt.cnp.account.request.UserDetailRequest;
 import com.hyrt.cnp.account.request.UserFaceBgRequest;
 import com.hyrt.cnp.account.requestListener.BaseRequestListener;
-import com.hyrt.cnp.requestListener.UserFaceBgRequestListener;
 import com.hyrt.cnp.account.service.MyService;
 import com.hyrt.cnp.account.utils.FaceUtils;
 import com.hyrt.cnp.account.utils.FileUtils;
 import com.hyrt.cnp.account.utils.PhotoUpload;
 import com.hyrt.cnp.classroom.ui.ClassroomIndexActivity;
+import com.hyrt.cnp.requestListener.UserFaceBgRequestListener;
 import com.hyrt.cnp.school.ui.SchoolIndexActivity;
 import com.hyrt.cnp.util.SystemUiHider;
 import com.jingdong.app.pad.product.drawable.HandlerRecycleBitmapDrawable;
@@ -20,19 +29,12 @@ import com.octo.android.robospice.SpiceManager;
 import com.octo.android.robospice.persistence.DurationInMillis;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-
 import net.hockeyapp.android.CrashManager;
 import net.hockeyapp.android.UpdateManager;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+
 import roboguice.RoboGuice;
 import roboguice.inject.InjectView;
 import roboguice.inject.RoboInjector;
@@ -235,4 +237,11 @@ public class FullscreenActivity extends BaseActivity {
         UpdateManager.register(this, APP_ID);
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_MENU) {
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }
