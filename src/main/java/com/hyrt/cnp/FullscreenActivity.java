@@ -123,7 +123,7 @@ public class FullscreenActivity extends BaseActivity {
             }
         });
         checkForUpdates();
-        initData();
+
     }
 
     /**
@@ -174,7 +174,7 @@ public class FullscreenActivity extends BaseActivity {
         //加载头像
         String facePath = FaceUtils.getAvatar(userDetail.getData().getUser_id(), FaceUtils.FACE_SMALL);
         ImageView imageView = (ImageView) findViewById(R.id.face_iv);
-        showDetailImage(facePath,imageView,false);
+        showDetailImage(facePath+"?time="+userDetail.getData().getLogo(),imageView,false);
 
         //加载头像地址
         String faceBgPath = FaceUtils.getAvatar(userDetail.getData().getUser_id(), FaceUtils.FACE_BG);
@@ -216,7 +216,8 @@ public class FullscreenActivity extends BaseActivity {
     public void updateCacheAndUI() {
         if(localBitmapDigest != null){
             GlobalImageCache.getLruBitmapCache().put(localBitmapDigest, bitmap);
-            HandlerRecycleBitmapDrawable localHandlerRecycleBitmapDrawable = (HandlerRecycleBitmapDrawable) imageViewBg.getDrawable();
+            HandlerRecycleBitmapDrawable localHandlerRecycleBitmapDrawable =
+                    (HandlerRecycleBitmapDrawable) imageViewBg.getDrawable();
             localHandlerRecycleBitmapDrawable.setBitmap(bitmap);
             localHandlerRecycleBitmapDrawable.invalidateSelf();
         }
@@ -226,6 +227,7 @@ public class FullscreenActivity extends BaseActivity {
     public void onResume() {
         super.onResume();
         checkForCrashes();
+        initData();
     }
 
     private void checkForCrashes() {
