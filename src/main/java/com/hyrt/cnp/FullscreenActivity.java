@@ -48,21 +48,23 @@ import roboguice.inject.RoboInjector;
 
 public class FullscreenActivity extends BaseActivity {
 
-    @InjectView(value=R.id.my_class)
+    @InjectView(value = R.id.my_class)
     private ImageView myClass;
 
-    @InjectView(value=R.id.my_school)
+    @InjectView(value = R.id.my_school)
     private ImageView mySchool;
 
-    @InjectView(value=R.id.my_info)
+    @InjectView(value = R.id.my_info)
     private ImageView myInfo;
 
-    @InjectView(value=R.id.facebg_iv)
+    @InjectView(value = R.id.facebg_iv)
     private ImageView imageViewBg;
 
     private PhotoUpload photoUpload;
     private Uri faceFile;
     private Bitmap bitmap;
+
+    private boolean isLogin = false;
 
     public SpiceManager spiceManager1 = new SpiceManager(
             MyService.class);
@@ -75,11 +77,10 @@ public class FullscreenActivity extends BaseActivity {
     private static final String APP_ID = "411f163ce21e2352706900bdccb37c92";
 
 
-
     @Override
     protected void onStart() {
         super.onStart();
-        if(!spiceManager1.isStarted())
+        if (!spiceManager1.isStarted())
             spiceManager1.start(this);
     }
 
@@ -104,13 +105,15 @@ public class FullscreenActivity extends BaseActivity {
         myInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FullscreenActivity.this, UserMainActivity.class));
+                if (isLogin) {
+                    startActivity(new Intent(FullscreenActivity.this, UserMainActivity.class));
+                }
             }
         });
         myClass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FullscreenActivity.this,ClassroomIndexActivity.class));
+                    startActivity(new Intent(FullscreenActivity.this, ClassroomIndexActivity.class));
             }
         });
         findViewById(R.id.update_cover).setOnClickListener(new View.OnClickListener() {
@@ -133,7 +136,7 @@ public class FullscreenActivity extends BaseActivity {
         //获取用户的基本信息
         UserDetailRequest userDetailRequest = new UserDetailRequest(this);
         spiceManager1.execute(userDetailRequest, userDetailRequest.createCacheKey(),
-                DurationInMillis.ONE_MINUTE,new BaseRequestListener(this) {
+                1000, new BaseRequestListener(this) {
 
             @Override
             public BaseRequestListener start() {
@@ -144,15 +147,18 @@ public class FullscreenActivity extends BaseActivity {
             @Override
             public void onRequestFailure(SpiceException e) {
                 super.onRequestFailure(e);
-                showMessage(R.string.getinfo_msg_title,R.string.getinfod_msgerror_content);
+                isLogin = false;
+                showMessage(R.string.getinfo_msg_title, R.string.getinfod_msgerror_content);
             }
 
             @Override
             public void onRequestSuccess(Object o) {
                 super.onRequestSuccess(o);
-                if(o == null){
-                    showMessage(R.string.getinfo_msg_title,R.string.getinfod_msgerror_content);
-                }else if(context.get() != null){
+                if (o == null) {
+                    isLogin = false;
+                    showMessage(R.string.getinfo_msg_title, R.string.getinfod_msgerror_content);
+                } else if (context.get() != null) {
+                    isLogin = true;
                     //获取基本资料成功后，加载头像
                     FullscreenActivity fullscreenActivity = (FullscreenActivity) context.get();
                     fullscreenActivity.initFaceIfSuccess((UserDetail.UserDetailModel) o);
@@ -174,17 +180,18 @@ public class FullscreenActivity extends BaseActivity {
         //加载头像
         String facePath = FaceUtils.getAvatar(userDetail.getData().getUser_id(), FaceUtils.FACE_SMALL);
         ImageView imageView = (ImageView) findViewById(R.id.face_iv);
-        showDetailImage(facePath+"?time="+userDetail.getData().getLogo(),imageView,false);
+        showDetailImage(facePath + "?time=" + userDetail.getData().getLogo(), imageView, false);
 
         //加载头像地址
         String faceBgPath = FaceUtils.getAvatar(userDetail.getData().getUser_id(), FaceUtils.FACE_BG);
-        localBitmapDigest = showDetailImage(faceBgPath,imageViewBg,true);
+        localBitmapDigest = showDetailImage(faceBgPath, imageViewBg, true);
 
 
     }
 
     /**
      * 监听剪切好的图片并上传|剪切保存好的图片
+     *
      * @param requestCode
      * @param resultCode
      * @param data
@@ -214,7 +221,7 @@ public class FullscreenActivity extends BaseActivity {
      * 上传图片成功后,更新缓存中的图片
      */
     public void updateCacheAndUI() {
-        if(localBitmapDigest != null){
+        if (localBitmapDigest != null) {
             GlobalImageCache.getLruBitmapCache().put(localBitmapDigest, bitmap);
             HandlerRecycleBitmapDrawable localHandlerRecycleBitmapDrawable =
                     (HandlerRecycleBitmapDrawable) imageViewBg.getDrawable();
@@ -241,7 +248,7 @@ public class FullscreenActivity extends BaseActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode == KeyEvent.KEYCODE_MENU) {
+        if (keyCode == KeyEvent.KEYCODE_MENU) {
             return true;
         }
         return super.onKeyDown(keyCode, event);
