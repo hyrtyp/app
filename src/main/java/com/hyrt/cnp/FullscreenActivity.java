@@ -178,7 +178,7 @@ public class FullscreenActivity extends BaseActivity {
         TextView.setText(userData.getData().getRenname());
 
         //加载头像
-        String facePath = FaceUtils.getAvatar(userDetail.getData().getUser_id(), FaceUtils.FACE_SMALL);
+        String facePath = FaceUtils.getAvatar(userDetail.getData().getUser_id(), FaceUtils.FACE_BIG);
         ImageView imageView = (ImageView) findViewById(R.id.face_iv);
         showDetailImage(facePath + "?time=" + userDetail.getData().getLogo(), imageView, false);
 
