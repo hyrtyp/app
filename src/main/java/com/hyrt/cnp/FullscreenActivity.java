@@ -59,6 +59,8 @@ public class FullscreenActivity extends BaseActivity {
 
     @InjectView(value = R.id.facebg_iv)
     private ImageView imageViewBg;
+    @InjectView(value =R.id.intro)
+    private TextView timeText;
 
     private PhotoUpload photoUpload;
     private Uri faceFile;
@@ -174,9 +176,10 @@ public class FullscreenActivity extends BaseActivity {
         UserDetail.UserDetailModel userDetail = userData;
 
         //附加名字
-        TextView TextView = (TextView) findViewById(R.id.name_tv);
-        TextView.setText(userData.getData().getRenname());
-
+        TextView textView = (TextView) findViewById(R.id.name_tv);
+        textView.setText(userData.getData().getRenname());
+        TextView timeView = (TextView) findViewById(R.id.intro);
+        timeView.setText(userData.getData().getTimeText());
         //加载头像
         String facePath = FaceUtils.getAvatar(userDetail.getData().getUser_id(), FaceUtils.FACE_BIG);
         ImageView imageView = (ImageView) findViewById(R.id.face_iv);

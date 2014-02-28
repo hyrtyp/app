@@ -58,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="简介：你好"
+        android:text=""
         android:textColor="@color/menuTv"
         android:id="@+id/intro"
         android:layout_marginLeft="@dimen/main_user_face_marginleft"
