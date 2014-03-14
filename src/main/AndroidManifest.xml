@@ -187,7 +187,12 @@
             android:label="@string/commitlist">
 
         </activity>
+        <activity
+            android:screenOrientation="portrait"
+            android:name="com.hyrt.cnp.dynamic.ui.HomeInteractiveActivity"
+            android:label="@string/homeinter">
 
+        </activity>
         <service
             android:name="com.hyrt.cnp.account.service.MyService"
             android:exported="false" />

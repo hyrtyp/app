@@ -67,7 +67,66 @@
 
 
     </LinearLayout>
+    <LinearLayout
+        style="@style/LinearLayout_SuperParent"
+        >
 
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                style="@style/MenuIv"
+                android:src="@drawable/my_school"
+                android:id="@+id/mydaynamic"/>
+
+            <TextView
+                style="@style/MenuTv"
+                android:text="@string/main_mydaynamic_menutv"
+                android:layout_below="@+id/mydaynamic"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                style="@style/MenuIv"
+                android:background="@drawable/my_class"
+                android:id="@+id/schoolsearch"/>
+
+            <TextView
+                style="@style/MenuTv"
+                android:text="@string/main_schoolsearch_menutv"
+                android:layout_below="@+id/schoolsearch"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible">
+            <ImageView
+                style="@style/MenuIv"
+                android:background="@drawable/my_info"
+                android:id="@+id/my_info"/>
+
+            <TextView
+                style="@style/MenuTv"
+                android:text="@string/main_userinfo_menutv"
+                android:layout_below="@+id/my_info"
+                />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">

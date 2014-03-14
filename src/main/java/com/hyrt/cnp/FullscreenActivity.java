@@ -19,6 +19,7 @@ import com.hyrt.cnp.account.utils.FaceUtils;
 import com.hyrt.cnp.account.utils.FileUtils;
 import com.hyrt.cnp.account.utils.PhotoUpload;
 import com.hyrt.cnp.classroom.ui.ClassroomIndexActivity;
+import com.hyrt.cnp.dynamic.ui.HomeInteractiveActivity;
 import com.hyrt.cnp.requestListener.UserFaceBgRequestListener;
 import com.hyrt.cnp.school.ui.SchoolIndexActivity;
 import com.hyrt.cnp.util.SystemUiHider;
@@ -56,6 +57,12 @@ public class FullscreenActivity extends BaseActivity {
 
     @InjectView(value = R.id.my_info)
     private ImageView myInfo;
+
+    @InjectView(value = R.id.mydaynamic)
+    private ImageView mydaynamic;
+
+    @InjectView(value = R.id.schoolsearch)
+    private ImageView schoolsearch;
 
     @InjectView(value = R.id.facebg_iv)
     private ImageView imageViewBg;
@@ -116,6 +123,12 @@ public class FullscreenActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                     startActivity(new Intent(FullscreenActivity.this, ClassroomIndexActivity.class));
+            }
+        });
+        mydaynamic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(FullscreenActivity.this, HomeInteractiveActivity.class));
             }
         });
         findViewById(R.id.update_cover).setOnClickListener(new View.OnClickListener() {
