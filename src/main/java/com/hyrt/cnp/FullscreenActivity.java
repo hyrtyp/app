@@ -49,6 +49,7 @@ import roboguice.inject.RoboInjector;
 
 public class FullscreenActivity extends BaseActivity {
 
+
     @InjectView(value = R.id.my_class)
     private ImageView myClass;
 
