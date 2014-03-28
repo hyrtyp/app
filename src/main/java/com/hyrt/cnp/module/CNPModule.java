@@ -22,9 +22,9 @@ import com.google.inject.Provider;
 import com.google.inject.Provides;
 import com.google.inject.name.Named;
 import com.hyrt.cnp.account.AccountClient;
-import com.hyrt.cnp.account.AccountScope;
-import com.hyrt.cnp.account.CNPAccount;
-import com.hyrt.cnp.account.CNPClient;
+import com.hyrt.cnp.base.account.AccountScope;
+import com.hyrt.cnp.base.account.CNPAccount;
+import com.hyrt.cnp.base.account.CNPClient;
 
 import java.io.File;
 

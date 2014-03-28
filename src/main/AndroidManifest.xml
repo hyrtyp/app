@@ -41,7 +41,7 @@
         <activity
             android:screenOrientation="portrait"
             android:theme="@style/MyFullscreenTheme"
-            android:name="com.hyrt.cnp.FullscreenActivity">
+            android:name=".FullscreenActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -52,16 +52,16 @@
         </activity>
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.account.LoginActivity"
+            android:name=".account.LoginActivity"
             android:label="@string/login_title"></activity>
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.school.ui.SchoolListActivity"
+            android:name=".school.ui.SchoolListActivity"
 
             android:label="@string/myschool_title"></activity>
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.school.ui.SchoolIndexActivity"
+            android:name=".school.ui.SchoolIndexActivity"
 
             android:label="@string/myschool_title">
 
@@ -69,136 +69,136 @@
 
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.account.manager.UserMainActivity"
+            android:name=".account.manager.UserMainActivity"
             android:label="@string/usermain_title" />
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.account.manager.UserInfoActivity"
+            android:name=".account.manager.UserInfoActivity"
             android:label="@string/userinfo_title"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.account.manager.UserPasswordActivity"
+            android:name=".account.manager.UserPasswordActivity"
             android:label="@string/userpassword_title"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.account.manager.UserFaceActivity"
+            android:name=".account.manager.UserFaceActivity"
             android:label="@string/userface_title" />
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.school.ui.SendwordActivity"
+            android:name=".school.ui.SendwordActivity"
             android:label="@string/schoolword"></activity>
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.school.ui.SchoolNoticeActivity"
+            android:name=".school.ui.SchoolNoticeActivity"
             android:label="@string/schoolnotice_title"></activity>
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.school.ui.SchoolNoticeInfoActivity"
+            android:name=".school.ui.SchoolNoticeInfoActivity"
             android:label="@string/schoolnotice_title"></activity>
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.school.ui.StarTeacherInfoActivity"
+            android:name=".school.ui.StarTeacherInfoActivity"
             android:label="@string/starteacher_title"></activity>
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.school.ui.SchoolRecipeActivity"
+            android:name=".school.ui.SchoolRecipeActivity"
 
             android:label="@string/schoolrecipe_title"></activity>
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.school.ui.StarTeacherActivity"
+            android:name=".school.ui.StarTeacherActivity"
             android:label="@string/starteacher_title"></activity>
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.school.ui.StarBabayActivity"
+            android:name=".school.ui.StarBabayActivity"
             android:label="@string/starbabay"></activity>
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.school.ui.ClassRoomListActivity"
+            android:name=".school.ui.ClassRoomListActivity"
             android:label="@string/classroomsetting"></activity>
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.school.ui.SchoolPhotoActivity"
+            android:name=".school.ui.SchoolPhotoActivity"
             android:label="@string/schoolphoto"></activity>
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.school.ui.SchoolRepiceInfoActivity"
+            android:name=".school.ui.SchoolRepiceInfoActivity"
             android:label="@string/schoolrecipe_title"></activity>
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.school.ui.SchoolInfoActivity"
+            android:name=".school.ui.SchoolInfoActivity"
             android:label="@string/schoolinfo"></activity>
 
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.classroom.ui.ClassroomIndexActivity"
+            android:name=".classroom.ui.ClassroomIndexActivity"
             android:label="@string/classroomname"></activity>
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.classroom.ui.ClassroomAlbumActivity"
+            android:name=".classroom.ui.ClassroomAlbumActivity"
             android:label="@string/classroomphoto"></activity>
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.classroom.ui.ClassroomphotolistActivity"
+            android:name=".classroom.ui.ClassroomphotolistActivity"
             android:label="@string/classroomphoto"></activity>
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.classroom.ui.ClassroomBabayActivity"
+            android:name=".classroom.ui.ClassroomBabayActivity"
             android:label="@string/classroombabay"></activity>
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.classroom.ui.ClassroomRecipeInfoActivity"
+            android:name=".classroom.ui.ClassroomRecipeInfoActivity"
             android:label="@string/dayrecipe"></activity>
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.dynamic.ui.BabayIndexActivity"
+            android:name=".dynamic.ui.BabayIndexActivity"
             android:label="@string/app_name">
 
         </activity>
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.dynamic.ui.BabayWordActivity"
+            android:name=".dynamic.ui.BabayWordActivity"
             android:label="@string/babayword">
 
         </activity>
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.dynamic.ui.DynamicCommentActivity"
+            android:name=".dynamic.ui.DynamicCommentActivity"
             android:label="@string/setzfcommit">
 
         </activity>
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.classroom.ui.ClassroomphotoinfoActivity"
+            android:name=".classroom.ui.ClassroomphotoinfoActivity"
             android:label="@string/classroomphotoinfo">
 
         </activity>
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.dynamic.ui.CommentListActivity"
+            android:name=".dynamic.ui.CommentListActivity"
             android:label="@string/commitlist">
 
         </activity>
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.view.ImageShowpop"
+            android:name="base.view.ImageShowpop"
             android:label="@string/commitlist">
 
         </activity>
         <activity
             android:screenOrientation="portrait"
-            android:name="com.hyrt.cnp.dynamic.ui.HomeInteractiveActivity"
+            android:name=".dynamic.ui.HomeInteractiveActivity"
             android:label="@string/homeinter">
 
         </activity>
         <service
-            android:name="com.hyrt.cnp.account.service.MyService"
+            android:name=".account.service.MyService"
             android:exported="false" />
 
         <service
-            android:name="com.hyrt.cnp.service.MyService"
+            android:name=".base.service.MyService"
             android:exported="false" />
     </application>
 

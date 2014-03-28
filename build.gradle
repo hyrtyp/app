@@ -4,7 +4,7 @@ buildscript {
         mavenLocal()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.7.+'
+        classpath 'com.android.tools.build:gradle:0.9.+'
         classpath 'com.stanfy.spoon:spoon-gradle-plugin:0.9.3-SNAPSHOT'
     }
 }
@@ -23,7 +23,7 @@ spoon {
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "19.0.1"
+    buildToolsVersion "19.0.0"
 
     defaultConfig {
         minSdkVersion 8
@@ -66,8 +66,8 @@ dependencies {
     compile project(':CNP_School')
     compile project(':CNP_Classroom')
     compile project(':CNP_Dynamic')
-    instrumentTestCompile 'com.squareup.spoon:spoon-client:1.0.5'
-    instrumentTestCompile 'com.jayway.android.robotium:robotium-solo:4.3'
-    instrumentTestCompile 'com.squareup:fest-android:1.0.7'
-    instrumentTestCompile 'org.mockito:mockito-core:1.9.5-rc1'
+    androidTestCompile 'com.squareup.spoon:spoon-client:1.0.5'
+    androidTestCompile 'com.jayway.android.robotium:robotium-solo:4.3'
+    androidTestCompile 'com.squareup:fest-android:1.0.7'
+    androidTestCompile 'org.mockito:mockito-core:1.9.5-rc1'
 }

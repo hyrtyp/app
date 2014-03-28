@@ -4,8 +4,8 @@ import android.app.Activity;
 
 import com.hyrt.cnp.FullscreenActivity;
 import com.hyrt.cnp.R;
-import com.hyrt.cnp.account.model.BaseTest;
-import com.hyrt.cnp.account.requestListener.BaseRequestListener;
+import com.hyrt.cnp.base.account.model.BaseTest;
+import com.hyrt.cnp.base.account.requestListener.BaseRequestListener;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 
 /**
