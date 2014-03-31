@@ -5,8 +5,6 @@ import android.os.Build;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.UiThreadTest;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import com.hyrt.cnp.R;
 import com.hyrt.cnp.account.manager.UserMainActivity;

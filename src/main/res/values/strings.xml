@@ -6,5 +6,7 @@
     <string name="main_userinfo_menutv">我的资料</string>
     <string name="main_userclass_menutv">我的班级</string>
     <string name="main_userschool_menutv">我的幼儿园</string>
+    <string name="main_schoolsearch_menutv">幼儿园搜索</string>
+    <string name="main_mydaynamic_menutv">家园互动</string>
 
 </resources>

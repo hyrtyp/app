@@ -5,10 +5,10 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/hua"
         android:layout_above="@+id/face_parentLl"
         android:layout_marginBottom="@dimen/main_user_cover_marginbottom"
-        android:id="@+id/imageView" />
+        android:paddingLeft="1px"
+        android:id="@+id/facebg_iv" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,6 +35,7 @@
 
         <ImageView
             style="@style/FaceIv"
+            android:src="@drawable/face"
             android:id="@+id/face_iv"
             android:layout_marginBottom="@dimen/main_user_face_marginbottom"
             android:layout_marginLeft="@dimen/main_user_face_marginleft"
@@ -46,7 +47,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="yepeng"
             android:id="@+id/name_tv"
             android:layout_alignParentBottom="true"
             android:layout_toRightOf="@+id/face_iv"/>
@@ -58,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="简介：你好"
+        android:text=""
         android:textColor="@color/menuTv"
         android:id="@+id/intro"
         android:layout_marginLeft="@dimen/main_user_face_marginleft"
