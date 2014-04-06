@@ -5,17 +5,12 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:0.9.+'
-        classpath 'com.stanfy.spoon:spoon-gradle-plugin:0.9.3-SNAPSHOT'
     }
 }
 apply plugin: 'android'
-apply plugin: 'spoon'
 apply plugin: 'signing'
 
 
-spoon {
-    debug = true
-}
 
 /*repositories {
     mavenCentral()
