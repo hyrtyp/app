@@ -18,6 +18,7 @@ package com.hyrt.cnp.module;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.hyrt.cnp.base.account.CNPClient;
+import com.hyrt.cnp.base.account.model.SchoolSearch;
 import com.hyrt.cnp.base.account.service.AlbumService;
 import com.hyrt.cnp.base.account.service.BabayinfoService;
 import com.hyrt.cnp.account.service.ClassRoomService;
@@ -25,9 +26,11 @@ import com.hyrt.cnp.base.account.service.ClassroomBabayService;
 import com.hyrt.cnp.base.account.service.CommentService;
 import com.hyrt.cnp.base.account.service.DynamicService;
 import com.hyrt.cnp.base.account.service.PhotoService;
+import com.hyrt.cnp.base.account.service.PositionInfoService;
 import com.hyrt.cnp.base.account.service.RecipeInfoService;
 import com.hyrt.cnp.base.account.service.RecipeService;
 import com.hyrt.cnp.base.account.service.SchoolNoticeService;
+import com.hyrt.cnp.base.account.service.SchoolSearchService;
 import com.hyrt.cnp.base.account.service.SchoolService;
 import com.hyrt.cnp.base.account.service.SendwordService;
 import com.hyrt.cnp.base.account.service.StarBabayService;
@@ -109,4 +112,10 @@ public class ServicesModule extends AbstractModule {
     BabayinfoService babayinfoService(CNPClient client){
         return new BabayinfoService(client);
     }
+
+    @Provides
+    SchoolSearchService schoolSearchService (CNPClient client) {return new SchoolSearchService(client);}
+
+    @Provides
+    PositionInfoService positionInfoService () {return new PositionInfoService();}
 }

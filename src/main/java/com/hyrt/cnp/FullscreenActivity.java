@@ -22,6 +22,7 @@ import com.hyrt.cnp.classroom.ui.ClassroomIndexActivity;
 import com.hyrt.cnp.dynamic.ui.HomeInteractiveActivity;
 import com.hyrt.cnp.requestListener.UserFaceBgRequestListener;
 import com.hyrt.cnp.school.ui.SchoolIndexActivity;
+import com.hyrt.cnp.school.ui.SchoolSearchActivity;
 import com.hyrt.cnp.util.SystemUiHider;
 import com.jingdong.app.pad.product.drawable.HandlerRecycleBitmapDrawable;
 import com.jingdong.common.frame.BaseActivity;
@@ -130,6 +131,12 @@ public class FullscreenActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(FullscreenActivity.this, HomeInteractiveActivity.class));
+            }
+        });
+        schoolsearch.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(FullscreenActivity.this, SchoolSearchActivity.class));
             }
         });
         findViewById(R.id.update_cover).setOnClickListener(new View.OnClickListener() {

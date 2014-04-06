@@ -15,6 +15,7 @@ import com.hyrt.cnp.dynamic.ui.BabayIndexActivity;
 import com.hyrt.cnp.dynamic.ui.BabayWordActivity;
 import com.hyrt.cnp.dynamic.ui.DynamicCommentActivity;
 import com.hyrt.cnp.school.ui.ClassRoomListActivity;
+import com.hyrt.cnp.school.ui.SchoolCityListActivity;
 import com.hyrt.cnp.school.ui.SchoolIndexActivity;
 import com.hyrt.cnp.school.ui.SchoolInfoActivity;
 import com.hyrt.cnp.school.ui.SchoolListActivity;
@@ -23,6 +24,8 @@ import com.hyrt.cnp.school.ui.SchoolNoticeInfoActivity;
 import com.hyrt.cnp.school.ui.SchoolPhotoActivity;
 import com.hyrt.cnp.school.ui.SchoolRecipeActivity;
 import com.hyrt.cnp.school.ui.SchoolRepiceInfoActivity;
+import com.hyrt.cnp.school.ui.SchoolSearchActivity;
+import com.hyrt.cnp.school.ui.SchoolSearchResultActivity;
 import com.hyrt.cnp.school.ui.SendwordActivity;
 import com.hyrt.cnp.school.ui.StarBabayActivity;
 import com.hyrt.cnp.school.ui.StarTeacherActivity;
@@ -163,4 +166,13 @@ public class ActivityModule extends AbstractModule {
     Class classroomphotoinfoActivity(){
         return ClassroomphotoinfoActivity.class;
     }
+    @Provides
+    @Named("schoolSearchActivity")
+    Class schoolSearchActivity() {return SchoolSearchActivity.class;}
+    @Provides
+    @Named("schoolSearchResultActivity")
+    Class schoolSearchResultActivity() {return SchoolSearchResultActivity.class;}
+    @Provides
+    @Named("schoolCityListActivity")
+    Class schoolCityListActivity() {return SchoolCityListActivity.class;}
 }
