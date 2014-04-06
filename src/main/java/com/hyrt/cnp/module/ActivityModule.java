@@ -14,6 +14,7 @@ import com.hyrt.cnp.classroom.ui.ClassroomphotolistActivity;
 import com.hyrt.cnp.dynamic.ui.BabayIndexActivity;
 import com.hyrt.cnp.dynamic.ui.BabayWordActivity;
 import com.hyrt.cnp.dynamic.ui.DynamicCommentActivity;
+import com.hyrt.cnp.dynamic.ui.ForwardActivity;
 import com.hyrt.cnp.school.ui.ClassRoomListActivity;
 import com.hyrt.cnp.school.ui.SchoolCityListActivity;
 import com.hyrt.cnp.school.ui.SchoolIndexActivity;
@@ -175,4 +176,7 @@ public class ActivityModule extends AbstractModule {
     @Provides
     @Named("schoolCityListActivity")
     Class schoolCityListActivity() {return SchoolCityListActivity.class;}
+    @Provides
+    @Named("forwardActivity")
+    Class forwardActivity() {return ForwardActivity.class;}
 }

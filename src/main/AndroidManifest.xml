@@ -234,6 +234,11 @@
             android:name=".school.ui.SchoolCityListActivity"
             android:label="@string/school_city_list"/>
 
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".dynamic.ui.ForwardActivity"
+            android:label="@string/setzfcommit"/>
+
         <service
             android:name=".account.service.MyService"
             android:exported="false" />
