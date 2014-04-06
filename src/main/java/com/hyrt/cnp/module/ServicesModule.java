@@ -24,6 +24,7 @@ import com.hyrt.cnp.account.service.ClassRoomService;
 import com.hyrt.cnp.base.account.service.ClassroomBabayService;
 import com.hyrt.cnp.base.account.service.CommentService;
 import com.hyrt.cnp.base.account.service.DynamicService;
+import com.hyrt.cnp.base.account.service.ItInfoService;
 import com.hyrt.cnp.base.account.service.PhotoService;
 import com.hyrt.cnp.base.account.service.RecipeInfoService;
 import com.hyrt.cnp.base.account.service.RecipeService;
@@ -109,4 +110,9 @@ public class ServicesModule extends AbstractModule {
     BabayinfoService babayinfoService(CNPClient client){
         return new BabayinfoService(client);
     }
+    @Provides
+    ItInfoService itInfoService(CNPClient client){
+        return new ItInfoService(client);
+    }
+
 }

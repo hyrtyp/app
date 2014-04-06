@@ -193,6 +193,30 @@
             android:label="@string/homeinter">
 
         </activity>
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".dynamic.ui.DynamicNewActivity"
+            android:label="@string/adddynamic">
+
+        </activity>
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".dynamic.ui.MyZFListActivity"
+            android:label="@string/setzfcommit">
+
+        </activity>
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".dynamic.ui.MyItListActivity"
+            android:label="@string/itmylist">
+
+        </activity>
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".dynamic.ui.MycommentListActivity"
+            android:label="@string/commentdy">
+
+        </activity>
         <service
             android:name=".account.service.MyService"
             android:exported="false" />

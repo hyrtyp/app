@@ -81,6 +81,9 @@ public class FullscreenActivity extends BaseActivity {
 
     private GlobalImageCache.BitmapDigest localBitmapDigest;
 
+
+    private UserDetail.UserDetailModel userDetail;
+
     /**
      * hockeyapp plugin APP_ID for this project
      */
@@ -129,7 +132,10 @@ public class FullscreenActivity extends BaseActivity {
         mydaynamic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(FullscreenActivity.this, HomeInteractiveActivity.class));
+                Intent intent = new Intent();
+                intent.setClass(FullscreenActivity.this, HomeInteractiveActivity.class);
+                intent.putExtra("userinfo",userDetail);
+                startActivity(intent);
             }
         });
         findViewById(R.id.update_cover).setOnClickListener(new View.OnClickListener() {
@@ -187,7 +193,7 @@ public class FullscreenActivity extends BaseActivity {
      * 加载图片头像
      */
     private void initFaceIfSuccess(UserDetail.UserDetailModel userData) {
-        UserDetail.UserDetailModel userDetail = userData;
+        userDetail = userData;
 
         //附加名字
         TextView textView = (TextView) findViewById(R.id.name_tv);
