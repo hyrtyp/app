@@ -222,6 +222,13 @@
 
         <activity
             android:screenOrientation="portrait"
+            android:name=".dynamic.ui.MyAddAblumActivity"
+            android:label="@string/commentdy">
+
+        </activity>
+
+        <activity
+            android:screenOrientation="portrait"
             android:name=".school.ui.SchoolSearchActivity"
             android:label="@string/school_search"/>
 
