@@ -11,10 +11,11 @@ import com.hyrt.cnp.classroom.ui.ClassroomIndexActivity;
 import com.hyrt.cnp.classroom.ui.ClassroomRecipeInfoActivity;
 import com.hyrt.cnp.classroom.ui.ClassroomphotoinfoActivity;
 import com.hyrt.cnp.classroom.ui.ClassroomphotolistActivity;
+import com.hyrt.cnp.dynamic.ui.AddAblumActivity;
 import com.hyrt.cnp.dynamic.ui.BabayIndexActivity;
 import com.hyrt.cnp.dynamic.ui.BabayWordActivity;
 import com.hyrt.cnp.dynamic.ui.DynamicCommentActivity;
-import com.hyrt.cnp.dynamic.ui.ForwardActivity;
+import com.hyrt.cnp.dynamic.ui.MyForwardListActivity;
 import com.hyrt.cnp.school.ui.ClassRoomListActivity;
 import com.hyrt.cnp.school.ui.SchoolCityListActivity;
 import com.hyrt.cnp.school.ui.SchoolIndexActivity;
@@ -177,6 +178,9 @@ public class ActivityModule extends AbstractModule {
     @Named("schoolCityListActivity")
     Class schoolCityListActivity() {return SchoolCityListActivity.class;}
     @Provides
-    @Named("forwardActivity")
-    Class forwardActivity() {return ForwardActivity.class;}
+    @Named("myForwardActivity")
+    Class myForwardActivity() {return MyForwardListActivity.class;}
+    @Provides
+    @Named("addAblumActivity")
+    Class addAblumActivity() {return AddAblumActivity.class;}
 }
