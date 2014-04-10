@@ -33,6 +33,7 @@ import com.hyrt.cnp.base.account.service.RecipeService;
 import com.hyrt.cnp.base.account.service.SchoolNoticeService;
 import com.hyrt.cnp.base.account.service.SchoolSearchService;
 import com.hyrt.cnp.base.account.service.SchoolService;
+import com.hyrt.cnp.base.account.service.SendDynamicService;
 import com.hyrt.cnp.base.account.service.SendwordService;
 import com.hyrt.cnp.base.account.service.StarBabayService;
 import com.hyrt.cnp.base.account.service.TeacherService;
@@ -124,4 +125,7 @@ public class ServicesModule extends AbstractModule {
 
     @Provides
     PositionInfoService positionInfoService () {return new PositionInfoService();}
+
+    @Provides
+    SendDynamicService sendDynamicService (CNPClient client) {return new SendDynamicService(client);}
 }
