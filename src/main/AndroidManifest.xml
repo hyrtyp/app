@@ -248,7 +248,7 @@
 
         <activity
             android:screenOrientation="portrait"
-            android:name=".dynamic.ui.AddAblumActivity"
+            android:name=".dynamic.ui.AddPhotoDynamicActivity"
             android:label="@string/adddynamic"/>
 
         <activity
@@ -261,6 +261,14 @@
             android:name=".dynamic.ui.AboutFriendActivity"
             android:label="@string/about_friend"/>
 
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".dynamic.ui.ChangeAlbumActivity"
+            android:label="@string/album_list"/>
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".dynamic.ui.AddAlbumActivity"
+            android:label="@string/album_list"/>
         <service
             android:name=".account.service.MyService"
             android:exported="false" />

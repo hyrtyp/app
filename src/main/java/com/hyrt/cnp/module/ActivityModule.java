@@ -12,9 +12,11 @@ import com.hyrt.cnp.classroom.ui.ClassroomRecipeInfoActivity;
 import com.hyrt.cnp.classroom.ui.ClassroomphotoinfoActivity;
 import com.hyrt.cnp.classroom.ui.ClassroomphotolistActivity;
 import com.hyrt.cnp.dynamic.ui.AboutFriendActivity;
-import com.hyrt.cnp.dynamic.ui.AddAblumActivity;
+import com.hyrt.cnp.dynamic.ui.AddAlbumActivity;
+import com.hyrt.cnp.dynamic.ui.AddPhotoDynamicActivity;
 import com.hyrt.cnp.dynamic.ui.BabayIndexActivity;
 import com.hyrt.cnp.dynamic.ui.BabayWordActivity;
+import com.hyrt.cnp.dynamic.ui.ChangeAlbumActivity;
 import com.hyrt.cnp.dynamic.ui.DynamicCommentActivity;
 import com.hyrt.cnp.dynamic.ui.MyForwardListActivity;
 import com.hyrt.cnp.dynamic.ui.SendDynamicActivity;
@@ -183,12 +185,18 @@ public class ActivityModule extends AbstractModule {
     @Named("myForwardActivity")
     Class myForwardActivity() {return MyForwardListActivity.class;}
     @Provides
-    @Named("addAblumActivity")
-    Class addAblumActivity() {return AddAblumActivity.class;}
+    @Named("addPhotoDynamicActivity")
+    Class addPhotoDynamicActivity() {return AddPhotoDynamicActivity.class;}
     @Provides
     @Named("sendDynamicActivity")
     Class sendDynamicActivity() {return SendDynamicActivity.class;}
     @Provides
     @Named("aboutFriendActivity")
     Class aboutFriendActivity() {return AboutFriendActivity.class;}
+    @Provides
+    @Named("changeAlbumActivity")
+    Class changeAlbumActivity() {return ChangeAlbumActivity.class;}
+    @Provides
+    @Named("addAlbumActivity")
+    Class addAlbumActivity() {return AddAlbumActivity.class;}
 }
