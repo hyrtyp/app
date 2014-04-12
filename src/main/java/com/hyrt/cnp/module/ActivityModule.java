@@ -18,6 +18,8 @@ import com.hyrt.cnp.dynamic.ui.BabayIndexActivity;
 import com.hyrt.cnp.dynamic.ui.BabayWordActivity;
 import com.hyrt.cnp.dynamic.ui.ChangeAlbumActivity;
 import com.hyrt.cnp.dynamic.ui.DynamicCommentActivity;
+import com.hyrt.cnp.dynamic.ui.DynamicPhotoInfoActivity;
+import com.hyrt.cnp.dynamic.ui.DynamicPhotoListActivity;
 import com.hyrt.cnp.dynamic.ui.MyForwardListActivity;
 import com.hyrt.cnp.dynamic.ui.SendDynamicActivity;
 import com.hyrt.cnp.school.ui.ClassRoomListActivity;
@@ -199,4 +201,10 @@ public class ActivityModule extends AbstractModule {
     @Provides
     @Named("addAlbumActivity")
     Class addAlbumActivity() {return AddAlbumActivity.class;}
+    @Provides
+    @Named("dynamicPhotoListActivity")
+    Class dynamicPhotoListActivity() {return DynamicPhotoListActivity.class;}
+    @Provides
+    @Named("dynamicPhotoInfoActivity")
+    Class dynamicPhotoInfoActivity() {return DynamicPhotoInfoActivity.class;}
 }

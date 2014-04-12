@@ -269,6 +269,14 @@
             android:screenOrientation="portrait"
             android:name=".dynamic.ui.AddAlbumActivity"
             android:label="@string/album_list"/>
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".dynamic.ui.DynamicPhotoListActivity"
+            android:label="@string/album_list"/>
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".dynamic.ui.DynamicPhotoInfoActivity"
+            android:label="@string/album_list"/>
         <service
             android:name=".account.service.MyService"
             android:exported="false" />
