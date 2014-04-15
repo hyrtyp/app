@@ -26,6 +26,11 @@
             android:text="@string/click_usercover" />
 
     </LinearLayout>
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#4cffffff"
+        android:layout_below="@id/update_cover"/>
 
     <LinearLayout
         android:layout_above="@+id/intro"
