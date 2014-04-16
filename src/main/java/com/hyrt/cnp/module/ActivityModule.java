@@ -14,6 +14,7 @@ import com.hyrt.cnp.classroom.ui.ClassroomphotolistActivity;
 import com.hyrt.cnp.dynamic.ui.AboutFriendActivity;
 import com.hyrt.cnp.dynamic.ui.AddAlbumActivity;
 import com.hyrt.cnp.dynamic.ui.AddPhotoDynamicActivity;
+import com.hyrt.cnp.dynamic.ui.AlbumBrowserActivity;
 import com.hyrt.cnp.dynamic.ui.BabayIndexActivity;
 import com.hyrt.cnp.dynamic.ui.BabayWordActivity;
 import com.hyrt.cnp.dynamic.ui.ChangeAlbumActivity;
@@ -207,4 +208,7 @@ public class ActivityModule extends AbstractModule {
     @Provides
     @Named("dynamicPhotoInfoActivity")
     Class dynamicPhotoInfoActivity() {return DynamicPhotoInfoActivity.class;}
+    @Provides
+    @Named("albumBrowserActivity")
+    Class albumBrowserActivity() {return AlbumBrowserActivity.class;}
 }
