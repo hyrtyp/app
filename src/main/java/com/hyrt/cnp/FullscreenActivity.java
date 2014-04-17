@@ -27,12 +27,14 @@ import com.hyrt.cnp.util.SystemUiHider;
 import com.jingdong.app.pad.product.drawable.HandlerRecycleBitmapDrawable;
 import com.jingdong.common.frame.BaseActivity;
 import com.jingdong.common.utils.cache.GlobalImageCache;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.octo.android.robospice.SpiceManager;
 import com.octo.android.robospice.persistence.DurationInMillis;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 
 import net.hockeyapp.android.CrashManager;
 import net.hockeyapp.android.UpdateManager;
+import net.oschina.app.AppContext;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -210,11 +212,17 @@ public class FullscreenActivity extends BaseActivity {
         //加载头像
         String facePath = FaceUtils.getAvatar(userDetail.getData().getUser_id(), FaceUtils.FACE_BIG);
         ImageView imageView = (ImageView) findViewById(R.id.face_iv);
-        showDetailImage(facePath + "?time=" + userDetail.getData().getLogo(), imageView, false);
+        ImageLoader.getInstance().displayImage(
+                facePath + "?time=" + userDetail.getData().getLogo(),
+                imageView, AppContext.getInstance().mImageloaderoptions);
+//        showDetailImage(facePath + "?time=" + userDetail.getData().getLogo(), imageView, false);
 
         //加载头像地址
         String faceBgPath = FaceUtils.getAvatar(userDetail.getData().getUser_id(), FaceUtils.FACE_BG);
-        localBitmapDigest = showDetailImage(faceBgPath, imageViewBg, true);
+        ImageLoader.getInstance().displayImage(
+                faceBgPath,
+                imageViewBg, AppContext.getInstance().mImageloaderoptions);
+//        localBitmapDigest = showDetailImage(faceBgPath, imageViewBg, true);
 
 
     }

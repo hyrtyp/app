@@ -8,6 +8,7 @@
         android:layout_above="@+id/face_parentLl"
         android:layout_marginBottom="@dimen/main_user_cover_marginbottom"
         android:paddingLeft="1px"
+        android:scaleType="centerCrop"
         android:id="@+id/facebg_iv" />
 
     <LinearLayout
