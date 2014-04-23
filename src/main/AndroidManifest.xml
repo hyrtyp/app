@@ -280,8 +280,13 @@
 
         <activity
             android:screenOrientation="portrait"
-            android:name=".dynamic.ui.AlbumBrowserActivity"
+            android:name=".base.account.ui.AlbumBrowserActivity"
             android:label="@string/phone_album"/>
+
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".account.manager.WelcomeActivity"
+            android:label="@string/login_title"/>
 
         <service
             android:name=".account.service.MyService"

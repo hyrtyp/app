@@ -32,7 +32,7 @@ public class UserFaceBgRequestListener extends BaseRequestListener{
     @Override
     public void onRequestSuccess(Object baseTest) {
         super.onRequestSuccess(baseTest);
-        if(context != null && context.get()!=null){
+        if(context != null && context.get()!=null && baseTest != null){
             if(((BaseTest)baseTest).getCode().equals("200")){
                 showMessage(R.string.facebg_msg_title,R.string.facebg_msg_content);
                 ((FullscreenActivity)context.get()).updateCacheAndUI();

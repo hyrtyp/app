@@ -5,6 +5,7 @@ import com.google.inject.Provides;
 import com.google.inject.name.Named;
 import com.hyrt.cnp.account.LoginActivity;
 import com.hyrt.cnp.account.manager.UserInfoActivity;
+import com.hyrt.cnp.account.manager.WelcomeActivity;
 import com.hyrt.cnp.classroom.ui.ClassroomAlbumActivity;
 import com.hyrt.cnp.classroom.ui.ClassroomBabayActivity;
 import com.hyrt.cnp.classroom.ui.ClassroomIndexActivity;
@@ -14,7 +15,7 @@ import com.hyrt.cnp.classroom.ui.ClassroomphotolistActivity;
 import com.hyrt.cnp.dynamic.ui.AboutFriendActivity;
 import com.hyrt.cnp.dynamic.ui.AddAlbumActivity;
 import com.hyrt.cnp.dynamic.ui.AddPhotoDynamicActivity;
-import com.hyrt.cnp.dynamic.ui.AlbumBrowserActivity;
+import com.hyrt.cnp.base.account.ui.AlbumBrowserActivity;
 import com.hyrt.cnp.dynamic.ui.BabayIndexActivity;
 import com.hyrt.cnp.dynamic.ui.BabayWordActivity;
 import com.hyrt.cnp.dynamic.ui.ChangeAlbumActivity;
@@ -211,4 +212,7 @@ public class ActivityModule extends AbstractModule {
     @Provides
     @Named("albumBrowserActivity")
     Class albumBrowserActivity() {return AlbumBrowserActivity.class;}
+    @Provides
+    @Named("welcomeActivity")
+    Class welcomeActivity() {return WelcomeActivity.class;}
 }

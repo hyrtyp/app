@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -38,6 +40,8 @@ import net.oschina.app.AppContext;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 
 import roboguice.RoboGuice;
 import roboguice.inject.InjectView;
@@ -86,6 +90,8 @@ public class FullscreenActivity extends BaseActivity {
 
 
     private UserDetail.UserDetailModel userDetail;
+
+    private static final String TAG = "FullscreenActivity";
 
     /**
      * hockeyapp plugin APP_ID for this project
@@ -164,19 +170,23 @@ public class FullscreenActivity extends BaseActivity {
      * 获取数据
      */
     private void initData() {
+        Log.i(TAG, "initData");
         //获取用户的基本信息
         UserDetailRequest userDetailRequest = new UserDetailRequest(this);
+        Log.i(TAG, "initData1");
         spiceManager1.execute(userDetailRequest, userDetailRequest.createCacheKey(),
                 1000, new BaseRequestListener(this) {
 
             @Override
             public BaseRequestListener start() {
+                Log.i(TAG, "initData:start");
                 showIndeterminate(R.string.user_info_pg);
                 return this;
             }
 
             @Override
             public void onRequestFailure(SpiceException e) {
+                Log.i(TAG, "initData:fail");
                 super.onRequestFailure(e);
                 isLogin = false;
                 showMessage(R.string.getinfo_msg_title, R.string.getinfod_msgerror_content);
@@ -184,11 +194,13 @@ public class FullscreenActivity extends BaseActivity {
 
             @Override
             public void onRequestSuccess(Object o) {
+                Log.i(TAG, "initData:success");
                 super.onRequestSuccess(o);
                 if (o == null) {
                     isLogin = false;
                     showMessage(R.string.getinfo_msg_title, R.string.getinfod_msgerror_content);
                 } else if (context.get() != null) {
+                    Log.i(TAG, "name:"+((UserDetail.UserDetailModel) o).getData().getNurseryName());
                     isLogin = true;
                     //获取基本资料成功后，加载头像
                     FullscreenActivity fullscreenActivity = (FullscreenActivity) context.get();
@@ -196,6 +208,7 @@ public class FullscreenActivity extends BaseActivity {
                 }
             }
         });
+        Log.i(TAG, "initData2");
     }
 
     /**
@@ -219,10 +232,10 @@ public class FullscreenActivity extends BaseActivity {
 
         //加载头像地址
         String faceBgPath = FaceUtils.getAvatar(userDetail.getData().getUser_id(), FaceUtils.FACE_BG);
-        ImageLoader.getInstance().displayImage(
-                faceBgPath,
-                imageViewBg, AppContext.getInstance().mImageloaderoptions);
-//        localBitmapDigest = showDetailImage(faceBgPath, imageViewBg, true);
+//        ImageLoader.getInstance().displayImage(
+//                faceBgPath,
+//                imageViewBg, AppContext.getInstance().mImageloaderoptions);
+        localBitmapDigest = showDetailImage(faceBgPath, imageViewBg, true);
 
 
     }
@@ -236,6 +249,27 @@ public class FullscreenActivity extends BaseActivity {
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if(resultCode == AppContext.getInstance().RESULT_FOR_PHONE_ALBUM){
+            ArrayList<String> checkeds = data.getStringArrayListExtra("checkeds");
+            if(checkeds != null && checkeds.size() > 0){
+                String path = checkeds.get(0);
+                File file = new File("", path);
+                try{
+                    bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), Uri.parse("file:"+path));
+                }catch (IOException e){
+                    android.util.Log.i(TAG, "uri to bitmap error");
+                }
+
+                android.util.Log.i(TAG, "file:"+file+" path:"+path);
+                //上传图片资源
+                UserFaceBgRequest request = new UserFaceBgRequest(this, file);
+                String lastRequestCacheKey = request.createCacheKey();
+                UserFaceBgRequestListener userFaceRequestListener = new UserFaceBgRequestListener(this);
+                spiceManager.execute(request, lastRequestCacheKey, DurationInMillis.ONE_SECOND, userFaceRequestListener.start());
+            }
+        }
+
         if (requestCode == PhotoUpload.PHOTO_ZOOM && data != null && data.getParcelableExtra("data") != null) {
 
             //保存剪切好的图片
