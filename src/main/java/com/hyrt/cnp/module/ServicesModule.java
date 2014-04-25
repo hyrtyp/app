@@ -19,6 +19,7 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.hyrt.cnp.base.account.CNPClient;
 import com.hyrt.cnp.base.account.model.SchoolSearch;
+import com.hyrt.cnp.base.account.service.AddPhotoCompleteService;
 import com.hyrt.cnp.base.account.service.AddPhotoService;
 import com.hyrt.cnp.base.account.service.AlbumService;
 import com.hyrt.cnp.base.account.service.BabayinfoService;
@@ -132,4 +133,7 @@ public class ServicesModule extends AbstractModule {
 
     @Provides
     AddPhotoService addPhotoService (CNPClient client) {return new AddPhotoService(client);}
+
+    @Provides
+    AddPhotoCompleteService addPhotoCompleteService (CNPClient client) {return new AddPhotoCompleteService(client);}
 }
