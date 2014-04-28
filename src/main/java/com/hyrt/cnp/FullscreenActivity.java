@@ -227,7 +227,7 @@ public class FullscreenActivity extends BaseActivity {
         ImageView imageView = (ImageView) findViewById(R.id.face_iv);
         ImageLoader.getInstance().displayImage(
                 facePath + "?time=" + userDetail.getData().getLogo(),
-                imageView, AppContext.getInstance().mImageloaderoptions);
+                imageView, AppContext.getInstance().mNoCacheOnDiscImageloadoptions);
 //        showDetailImage(facePath + "?time=" + userDetail.getData().getLogo(), imageView, false);
 
         //加载头像地址
