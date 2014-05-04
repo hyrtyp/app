@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hyrt.cnp.account.manager.UserMainActivity;
@@ -57,20 +59,20 @@ import roboguice.inject.RoboInjector;
 public class FullscreenActivity extends BaseActivity {
 
 
-    @InjectView(value = R.id.my_class)
-    private ImageView myClass;
+    @InjectView(value = R.id.layout_index_classroom)
+    private LinearLayout myClass;
 
-    @InjectView(value = R.id.my_school)
-    private ImageView mySchool;
+    @InjectView(value = R.id.layout_index_school)
+    private LinearLayout mySchool;
 
-    @InjectView(value = R.id.my_info)
-    private ImageView myInfo;
+    @InjectView(value = R.id.layout_index_user)
+    private LinearLayout myInfo;
 
-    @InjectView(value = R.id.mydaynamic)
-    private ImageView mydaynamic;
+    @InjectView(value = R.id.layout_index_dynamic)
+    private LinearLayout mydaynamic;
 
-    @InjectView(value = R.id.schoolsearch)
-    private ImageView schoolsearch;
+    @InjectView(value = R.id.layout_index_search)
+    private LinearLayout schoolsearch;
 
     @InjectView(value = R.id.facebg_iv)
     private ImageView imageViewBg;
@@ -117,7 +119,7 @@ public class FullscreenActivity extends BaseActivity {
         final RoboInjector injector = RoboGuice.getInjector(this);
         injector.injectMembersWithoutViews(this);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fullscreen);
+        setContentView(R.layout.activity_fullscreen2);
         mySchool.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
