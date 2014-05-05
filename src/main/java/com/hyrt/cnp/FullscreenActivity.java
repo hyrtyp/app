@@ -31,6 +31,7 @@ import com.hyrt.cnp.util.SystemUiHider;
 import com.jingdong.app.pad.product.drawable.HandlerRecycleBitmapDrawable;
 import com.jingdong.common.frame.BaseActivity;
 import com.jingdong.common.utils.cache.GlobalImageCache;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.octo.android.robospice.SpiceManager;
 import com.octo.android.robospice.persistence.DurationInMillis;
@@ -233,11 +234,18 @@ public class FullscreenActivity extends BaseActivity {
 //        showDetailImage(facePath + "?time=" + userDetail.getData().getLogo(), imageView, false);
 
         //加载头像地址
+        ImageLoader.getInstance().clearMemoryCache();
+        DisplayImageOptions mOptions = new DisplayImageOptions.Builder()
+                .showImageOnLoading(com.hyrt.cnp.base.R.drawable.hua2)
+                .showImageOnFail(com.hyrt.cnp.base.R.drawable.hua2)
+                .showImageForEmptyUri(com.hyrt.cnp.base.R.drawable.hua2)
+                .cacheInMemory(true)
+                .build();
         String faceBgPath = FaceUtils.getAvatar(userDetail.getData().getUser_id(), FaceUtils.FACE_BG);
-//        ImageLoader.getInstance().displayImage(
-//                faceBgPath,
-//                imageViewBg, AppContext.getInstance().mImageloaderoptions);
-        localBitmapDigest = showDetailImage(faceBgPath, imageViewBg, true);
+        ImageLoader.getInstance().displayImage(
+                faceBgPath,
+                imageViewBg, mOptions);
+//        localBitmapDigest = showDetailImage(faceBgPath, imageViewBg, true);
 
 
     }

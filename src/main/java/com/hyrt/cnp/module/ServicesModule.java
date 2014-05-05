@@ -28,6 +28,7 @@ import com.hyrt.cnp.base.account.service.ClassroomBabayService;
 import com.hyrt.cnp.base.account.service.CommentService;
 import com.hyrt.cnp.base.account.service.DynamicService;
 import com.hyrt.cnp.base.account.service.ItInfoService;
+import com.hyrt.cnp.base.account.service.NotNeedLoginService;
 import com.hyrt.cnp.base.account.service.PhotoService;
 import com.hyrt.cnp.base.account.service.PositionInfoService;
 import com.hyrt.cnp.base.account.service.RecipeInfoService;
@@ -136,4 +137,7 @@ public class ServicesModule extends AbstractModule {
 
     @Provides
     AddPhotoCompleteService addPhotoCompleteService (CNPClient client) {return new AddPhotoCompleteService(client);}
+
+    @Provides
+    NotNeedLoginService notNeedLoginService () {return new NotNeedLoginService();}
 }
