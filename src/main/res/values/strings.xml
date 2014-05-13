@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">CNP</string>
+    <string name="app_name">幼教家园</string>
     <string name="click_usercover">点击设置个人封面</string>
     <string name="main_userinfo_menutv">我的资料</string>
     <string name="main_userclass_menutv">我的班级</string>

@@ -219,7 +219,9 @@ public class FullscreenActivity extends BaseActivity {
      */
     private void initFaceIfSuccess(UserDetail.UserDetailModel userData) {
         userDetail = userData;
-
+        if(userData != null){
+            AppContext.getInstance().mUserDetail = userData.getData();
+        }
         //附加名字
         TextView textView = (TextView) findViewById(R.id.name_tv);
         textView.setText(userData.getData().getRenname());

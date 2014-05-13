@@ -256,6 +256,7 @@
         <activity
             android:screenOrientation="portrait"
             android:name=".dynamic.ui.SendDynamicActivity"
+            android:windowSoftInputMode="stateVisible"
             android:label="@string/adddynamic"/>
 
         <activity

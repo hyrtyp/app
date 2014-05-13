@@ -23,7 +23,7 @@ import com.hyrt.cnp.base.account.service.AddPhotoCompleteService;
 import com.hyrt.cnp.base.account.service.AddPhotoService;
 import com.hyrt.cnp.base.account.service.AlbumService;
 import com.hyrt.cnp.base.account.service.BabayinfoService;
-import com.hyrt.cnp.account.service.ClassRoomService;
+import com.hyrt.cnp.base.account.service.ClassRoomService;
 import com.hyrt.cnp.base.account.service.ClassroomBabayService;
 import com.hyrt.cnp.base.account.service.CommentService;
 import com.hyrt.cnp.base.account.service.DynamicService;

@@ -12,6 +12,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_marginTop="@dimen/view_margin_small"
+        android:layout_marginBottom="@dimen/view_margin_small"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -60,6 +61,7 @@
                     style="@style/medium_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/view_margin_smallest"
                     android:text="家园互动"
                     android:textColor="#fff" />
             </LinearLayout>
@@ -84,6 +86,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="我的班级"
+                    android:layout_marginTop="@dimen/view_margin_smallest"
                     android:textColor="#fff" />
             </LinearLayout>
         </LinearLayout>
@@ -116,6 +119,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="我的资料"
+                    android:layout_marginTop="@dimen/view_margin_smallest"
                     android:textColor="#fff" />
             </LinearLayout>
 
@@ -140,6 +144,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="我的幼儿园"
+                    android:layout_marginTop="@dimen/view_margin_smallest"
                     android:textColor="#fff" />
             </LinearLayout>
 
@@ -163,6 +168,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="幼儿园搜索"
+                    android:layout_marginTop="@dimen/view_margin_smallest"
                     android:textColor="#fff" />
             </LinearLayout>
         </LinearLayout>
