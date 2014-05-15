@@ -89,7 +89,7 @@ public class FullscreenActivity extends BaseActivity {
     public SpiceManager spiceManager1 = new SpiceManager(
             MyService.class);
 
-    private GlobalImageCache.BitmapDigest localBitmapDigest;
+//    private GlobalImageCache.BitmapDigest localBitmapDigest;
 
 
     private UserDetail.UserDetailModel userDetail;
@@ -166,7 +166,6 @@ public class FullscreenActivity extends BaseActivity {
             }
         });
         checkForUpdates();
-
     }
 
     /**
@@ -305,20 +304,34 @@ public class FullscreenActivity extends BaseActivity {
      * 上传图片成功后,更新缓存中的图片
      */
     public void updateCacheAndUI() {
-        if (localBitmapDigest != null) {
-            GlobalImageCache.getLruBitmapCache().put(localBitmapDigest, bitmap);
-            HandlerRecycleBitmapDrawable localHandlerRecycleBitmapDrawable =
-                    (HandlerRecycleBitmapDrawable) imageViewBg.getDrawable();
-            localHandlerRecycleBitmapDrawable.setBitmap(bitmap);
-            localHandlerRecycleBitmapDrawable.invalidateSelf();
-        }
+//        if (localBitmapDigest != null) {
+//            GlobalImageCache.getLruBitmapCache().put(localBitmapDigest, bitmap);
+//            HandlerRecycleBitmapDrawable localHandlerRecycleBitmapDrawable =
+//                    (HandlerRecycleBitmapDrawable) imageViewBg.getDrawable();
+//            localHandlerRecycleBitmapDrawable.setBitmap(bitmap);
+//            localHandlerRecycleBitmapDrawable.invalidateSelf();
+//        }
+
+        ImageLoader.getInstance().clearMemoryCache();
+        DisplayImageOptions mOptions = new DisplayImageOptions.Builder()
+                .showImageOnLoading(com.hyrt.cnp.base.R.drawable.hua2)
+                .showImageOnFail(com.hyrt.cnp.base.R.drawable.hua2)
+                .showImageForEmptyUri(com.hyrt.cnp.base.R.drawable.hua2)
+                .cacheInMemory(true)
+                .build();
+        String faceBgPath = FaceUtils.getAvatar(userDetail.getData().getUser_id(), FaceUtils.FACE_BG);
+        ImageLoader.getInstance().displayImage(
+                faceBgPath,
+                imageViewBg, mOptions);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        checkForCrashes();
-        initData();
+        if(AppContext.getInstance().mUserDetail == null){
+            checkForCrashes();
+            initData();
+        }
     }
 
     private void checkForCrashes() {
