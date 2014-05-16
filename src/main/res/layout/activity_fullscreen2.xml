@@ -7,11 +7,15 @@
     android:orientation="vertical">
 
     <include layout="@layout/user_main_top" />
+    <com.hyrt.cnp.base.view.BounceScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="@dimen/view_margin_small"
+        android:layout_marginBottom="@dimen/view_margin_small"
+        android:fillViewport="true">
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_marginTop="@dimen/view_margin_small"
-            android:layout_marginBottom="@dimen/view_margin_small"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -172,4 +176,5 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+    </com.hyrt.cnp.base.view.BounceScrollView>
 </LinearLayout>
