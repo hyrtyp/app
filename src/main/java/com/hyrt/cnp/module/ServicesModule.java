@@ -25,6 +25,7 @@ import com.hyrt.cnp.base.account.service.AlbumService;
 import com.hyrt.cnp.base.account.service.BabayinfoService;
 import com.hyrt.cnp.base.account.service.BaseStringArrayService;
 import com.hyrt.cnp.base.account.service.ClassRoomService;
+import com.hyrt.cnp.base.account.service.ClassroomAlterService;
 import com.hyrt.cnp.base.account.service.ClassroomBabayService;
 import com.hyrt.cnp.base.account.service.CommentService;
 import com.hyrt.cnp.base.account.service.DynamicService;
@@ -144,4 +145,7 @@ public class ServicesModule extends AbstractModule {
 
     @Provides
     BaseStringArrayService baseStringArrayService (CNPClient client) {return new BaseStringArrayService(client);}
+
+    @Provides
+    ClassroomAlterService classroomAlterService (CNPClient client) {return new ClassroomAlterService(client);}
 }

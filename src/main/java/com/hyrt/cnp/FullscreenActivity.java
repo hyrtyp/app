@@ -82,7 +82,7 @@ public class FullscreenActivity extends BaseActivity {
 
     private PhotoUpload photoUpload;
     private Uri faceFile;
-    private Bitmap bitmap;
+//    private Bitmap bitmap;
 
     private boolean isLogin = false;
 
@@ -138,7 +138,9 @@ public class FullscreenActivity extends BaseActivity {
         myClass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (isLogin) {
                     startActivity(new Intent(FullscreenActivity.this, ClassroomIndexActivity.class));
+                }
             }
         });
         mydaynamic.setOnClickListener(new View.OnClickListener() {
@@ -266,11 +268,11 @@ public class FullscreenActivity extends BaseActivity {
             if(checkeds != null && checkeds.size() > 0){
                 String path = checkeds.get(0);
                 File file = new File("", path);
-                try{
-                    bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), Uri.parse("file:"+path));
-                }catch (IOException e){
-                    android.util.Log.i(TAG, "uri to bitmap error");
-                }
+//                try{
+//                    bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), Uri.parse("file:"+path));
+//                }catch (IOException e){
+//                    android.util.Log.i(TAG, "uri to bitmap error");
+//                }
 
                 android.util.Log.i(TAG, "file:"+file+" path:"+path);
                 //上传图片资源
@@ -281,7 +283,7 @@ public class FullscreenActivity extends BaseActivity {
             }
         }
 
-        if (requestCode == PhotoUpload.PHOTO_ZOOM && data != null && data.getParcelableExtra("data") != null) {
+       /* if (requestCode == PhotoUpload.PHOTO_ZOOM && data != null && data.getParcelableExtra("data") != null) {
 
             //保存剪切好的图片
             bitmap = data.getParcelableExtra("data");
@@ -296,7 +298,7 @@ public class FullscreenActivity extends BaseActivity {
             spiceManager.execute(request, lastRequestCacheKey, DurationInMillis.ONE_SECOND, userFaceRequestListener.start());
         } else if (requestCode == PhotoUpload.FROM_CAMERA) {
             photoUpload.startRangPhotoZoom(faceFile);
-        }
+        }*/
         super.onActivityResult(requestCode, resultCode, data);
     }
 
@@ -333,6 +335,7 @@ public class FullscreenActivity extends BaseActivity {
             initData();
         }
     }
+
 
     private void checkForCrashes() {
         CrashManager.register(this, APP_ID);
