@@ -21,6 +21,7 @@ import com.hyrt.cnp.base.account.requestListener.BaseRequestListener;
 import com.hyrt.cnp.account.service.MyService;
 import com.hyrt.cnp.base.account.utils.FaceUtils;
 import com.hyrt.cnp.base.account.utils.FileUtils;
+import com.hyrt.cnp.base.account.utils.LogHelper;
 import com.hyrt.cnp.base.account.utils.PhotoUpload;
 import com.hyrt.cnp.classroom.ui.ClassroomIndexActivity;
 import com.hyrt.cnp.dynamic.ui.HomeInteractiveActivity;
@@ -174,23 +175,23 @@ public class FullscreenActivity extends BaseActivity {
      * 获取数据
      */
     private void initData() {
-        Log.i(TAG, "initData");
+        LogHelper.i(TAG, "initData");
         //获取用户的基本信息
         UserDetailRequest userDetailRequest = new UserDetailRequest(this);
-        Log.i(TAG, "initData1");
+        LogHelper.i(TAG, "initData1");
         spiceManager1.execute(userDetailRequest, userDetailRequest.createCacheKey(),
                 1000, new BaseRequestListener(this) {
 
             @Override
             public BaseRequestListener start() {
-                Log.i(TAG, "initData:start");
+                LogHelper.i(TAG, "initData:start");
                 showIndeterminate(R.string.user_info_pg);
                 return this;
             }
 
             @Override
             public void onRequestFailure(SpiceException e) {
-                Log.i(TAG, "initData:fail");
+                LogHelper.i(TAG, "initData:fail");
                 super.onRequestFailure(e);
                 isLogin = false;
                 showMessage(R.string.getinfo_msg_title, R.string.getinfod_msgerror_content);
@@ -198,13 +199,13 @@ public class FullscreenActivity extends BaseActivity {
 
             @Override
             public void onRequestSuccess(Object o) {
-                Log.i(TAG, "initData:success");
+                LogHelper.i(TAG, "initData:success");
                 super.onRequestSuccess(o);
                 if (o == null) {
                     isLogin = false;
                     showMessage(R.string.getinfo_msg_title, R.string.getinfod_msgerror_content);
                 } else if (context.get() != null) {
-                    Log.i(TAG, "name:"+((UserDetail.UserDetailModel) o).getData().getNurseryName());
+                    LogHelper.i(TAG, "name:"+((UserDetail.UserDetailModel) o).getData().getNurseryName());
                     isLogin = true;
                     //获取基本资料成功后，加载头像
                     FullscreenActivity fullscreenActivity = (FullscreenActivity) context.get();
@@ -212,7 +213,7 @@ public class FullscreenActivity extends BaseActivity {
                 }
             }
         });
-        Log.i(TAG, "initData2");
+        LogHelper.i(TAG, "initData2");
     }
 
     /**
@@ -274,7 +275,7 @@ public class FullscreenActivity extends BaseActivity {
 //                    android.util.Log.i(TAG, "uri to bitmap error");
 //                }
 
-                android.util.Log.i(TAG, "file:"+file+" path:"+path);
+                LogHelper.i(TAG, "file:" + file + " path:" + path);
                 //上传图片资源
                 UserFaceBgRequest request = new UserFaceBgRequest(this, file);
                 String lastRequestCacheKey = request.createCacheKey();

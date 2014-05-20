@@ -293,6 +293,11 @@
             android:name=".account.manager.WelcomeActivity"
             android:label="@string/login_title"/>
 
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".school.ui.SendNoticeActivity"
+            android:windowSoftInputMode="stateVisible"/>
+
         <service
             android:name=".account.service.MyService"
             android:exported="false" />
