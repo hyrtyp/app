@@ -43,6 +43,7 @@ import com.hyrt.cnp.base.account.service.SendDynamicService;
 import com.hyrt.cnp.base.account.service.SendwordService;
 import com.hyrt.cnp.base.account.service.StarBabayService;
 import com.hyrt.cnp.base.account.service.TeacherService;
+import com.hyrt.cnp.base.account.service.UpdateService;
 import com.hyrt.cnp.base.account.service.UserService;
 
 /**
@@ -152,4 +153,7 @@ public class ServicesModule extends AbstractModule {
 
     @Provides
     NoticeAlterService noticeAlterService (CNPClient client) {return new NoticeAlterService(client);}
+
+    @Provides
+    UpdateService updateService () {return new UpdateService();}
 }

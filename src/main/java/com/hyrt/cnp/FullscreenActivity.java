@@ -23,6 +23,7 @@ import com.hyrt.cnp.base.account.utils.FaceUtils;
 import com.hyrt.cnp.base.account.utils.FileUtils;
 import com.hyrt.cnp.base.account.utils.LogHelper;
 import com.hyrt.cnp.base.account.utils.PhotoUpload;
+import com.hyrt.cnp.base.account.utils.UpdateHepler;
 import com.hyrt.cnp.classroom.ui.ClassroomIndexActivity;
 import com.hyrt.cnp.dynamic.ui.HomeInteractiveActivity;
 import com.hyrt.cnp.requestListener.UserFaceBgRequestListener;
@@ -54,7 +55,7 @@ import roboguice.inject.RoboInjector;
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
- *
+ *首页
  * @see SystemUiHider
  */
 
@@ -121,7 +122,10 @@ public class FullscreenActivity extends BaseActivity {
         final RoboInjector injector = RoboGuice.getInjector(this);
         injector.injectMembersWithoutViews(this);
         super.onCreate(savedInstanceState);
+        AppContext.getInstance().mUserDetail = null;
         setContentView(R.layout.activity_fullscreen2);
+        UpdateHepler mUpdateHelper = new UpdateHepler(this);
+        mUpdateHelper.DetectUpdate();
         mySchool.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

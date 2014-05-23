@@ -23,23 +23,39 @@ android {
     defaultConfig {
         minSdkVersion 8
         targetSdkVersion 19
-        versionCode 7
-        versionName "2.1.2"
+        versionCode 9
+        versionName "2.1.4"
     }
 
     signingConfigs {
 
-        release {
-            storeFile file(project.hasProperty('apkstoreFile') ? apkstoreFile : "/home/GYH/.ssh/hyrt.store")
-            storePassword project.hasProperty('apkstorePassword') ? apkstorePassword : "cnp.store"
-            keyAlias project.hasProperty('apkkeyAlias') ? apkkeyAlias : "cnp.store"
-            keyPassword project.hasProperty('apkskeyPassword') ? apkkeyPassword : "cnp.store"
+//        release {
+//            storeFile file(project.hasProperty('apkstoreFile') ? apkstoreFile : "/home/GYH/.ssh/hyrt.store")
+//            storePassword project.hasProperty('apkstorePassword') ? apkstorePassword : "cnp.store"
+//            keyAlias project.hasProperty('apkkeyAlias') ? apkkeyAlias : "cnp.store"
+//            keyPassword project.hasProperty('apkskeyPassword') ? apkkeyPassword : "cnp.store"
+//        }
+
+        myConfig {
+            storeFile file("cnp.keystore")
+            storePassword "cnp"
+            keyAlias "cnp"
+            keyPassword "cnp"
         }
     }
 
     buildTypes {
+//        release {
+//            signingConfig signingConfigs.release
+//        }
+//        foo {
+//            debuggable true
+//            jniDebugBuild true
+//            signingConfig signingConfigs.myConfig
+//        }
+
         release {
-            signingConfig signingConfigs.release
+            signingConfig  signingConfigs.myConfig
         }
     }
 
